@@ -16,7 +16,8 @@ class UserTableSeeder extends Seeder
             'name' =>'Jon',
             'last_name' =>'Doe',
             'email' =>'admin@gmail.com',
-            'password' =>'password'
+            'password' =>'password',
+           'username' =>'adminUser'
             ]);
        $user->assignRole('admin');
 
@@ -24,7 +25,9 @@ class UserTableSeeder extends Seeder
             'name' =>'Jane',
             'last_name' =>'Doe',
             'email' =>'staff@gmail.com',
-            'password' =>'password'
+            'password' =>'password',
+            'username' =>'staffUser'
+
         ]);
         $user->assignRole('staff');
     }
