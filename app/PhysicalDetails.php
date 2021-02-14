@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PhysicalDetails extends Model
 {
     protected $fillable = [
+        'prisoner_id',
         'height',
         'weight',
         'build',
@@ -18,4 +19,7 @@ class PhysicalDetails extends Model
         'address_nearest_kin',
         'bertillon_marks'
     ];
+    public function prisoner(){
+        return $this->belongsTo(Prisoner::class);
+    }#
 }

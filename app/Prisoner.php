@@ -28,4 +28,13 @@ class Prisoner extends Model
     public function contacts(){
         return $this->hasMany(ContactPeople::class,'prisoner_id','id');
     }
+    public function physicalDetails(){
+        return $this->hasOne(PhysicalDetails::class);
+    }
+    public function offenseData(){
+        return $this->hasOne(OffenseData::class);
+    }
+    public function booking(){
+        return $this->hasOne(BookingSheet::class);
+    }
 }

@@ -15,6 +15,7 @@ class CreateBookingSheetsTable extends Migration
     {
         Schema::create('booking_sheets', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('prisoner_id');
             $table->string('reference_no');
             $table->string('agency');
             $table->string('agency_address');

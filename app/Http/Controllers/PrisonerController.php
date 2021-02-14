@@ -44,9 +44,7 @@ class PrisonerController extends Controller
     {
         DB::transaction(function () use ($request){
             (new PrisonerService())->create($request);
-            OffenseData::create($request->all());
-            BookingSheet::create($request->all());
-            PhysicalDetails::create($request->all());
+
         });
 
 
@@ -61,7 +59,7 @@ class PrisonerController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('prisoner.show');
     }
 
     /**

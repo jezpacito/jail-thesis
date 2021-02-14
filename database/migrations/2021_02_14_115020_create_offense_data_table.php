@@ -15,6 +15,7 @@ class CreateOffenseDataTable extends Migration
     {
         Schema::create('offense_data', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('prisoner_id');
             $table->string('crime_committed');
             $table->string('criminal_case_no');
             $table->string('trial_court');

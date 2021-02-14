@@ -15,6 +15,7 @@ class CreatePhysicalDetailsTable extends Migration
     {
         Schema::create('physical_details', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('prisoner_id');
             $table->string('height');
             $table->string('weight');
             $table->string('build');

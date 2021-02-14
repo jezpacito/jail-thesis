@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class OffenseData extends Model
 {
     protected  $fillable = [
+        'prisoner_id',
         'crime_committed',
         'criminal_case_no',
         'trial_court',
@@ -19,4 +20,7 @@ class OffenseData extends Model
         'sentence_by',
         'sentence'
     ];
+    public function prisoner(){
+        return $this->belongsTo(Prisoner::class);
+    }
 }

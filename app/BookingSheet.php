@@ -12,4 +12,7 @@ class BookingSheet extends Model
         'agency_address',
         'category_prisoner'
     ];
+    public function prisoner(){
+        return $this->belongsTo(Prisoner::class);
+    }
 }
