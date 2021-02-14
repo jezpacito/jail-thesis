@@ -18,7 +18,11 @@ class CreatePrisonersTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('middlename');
+            $table->string('alias');
+            $table->string('nationality');
             $table->string('place_of_birth');
+            $table->string('gender');
+            $table->date('birthdate');
             $table->longText('permanent_address');
             $table->longText('previous_address');
             $table->integer('age');

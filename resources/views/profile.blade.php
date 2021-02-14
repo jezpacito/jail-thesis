@@ -74,7 +74,7 @@
                     <form method="POST" action="{{ route('profile.update') }}" autocomplete="off">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                        <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="_method" value="PUT">
 
                         <h6 class="heading-small text-muted mb-4">User information</h6>
 

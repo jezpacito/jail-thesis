@@ -25,20 +25,36 @@
                     Looks good!
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom03">Alias</label>
+                <input type="text" class="form-control" id="validationCustom03" placeholder="Alias" name="alias" required>
+                <div class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
                 <label for="validationCustom03">Place of Birth</label>
                 <input type="text" class="form-control" id="validationCustom03" placeholder="Place of Birth" name="place_of_birth" required>
                 <div class="invalid-feedback">
                     Please provide a valid city.
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+
+            <div class="col-md-4 mb-3">
                 <label for="validationCustom03">Permanent Address</label>
                 <input type="text" class="form-control" id="validationCustom03" placeholder="Permanent Address" name="permanent_address" required>
                 <div class="invalid-feedback">
                     Please provide a valid city.
                 </div>
             </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationCustom03">Permanent Address</label>
+                <input type="text" class="form-control" id="validationCustom03" placeholder="Permanent Address" name="permanent_address" required>
+                <div class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
+            </div>
+
             <div class="col-md-6 mb-3">
                 <label for="validationCustom03">Previous Address</label>
                 <input type="text" class="form-control" id="validationCustom03" placeholder="Previous Address" name="previous_address" required>
@@ -66,6 +82,22 @@
                     Please provide a valid zip.
                 </div>
             </div>
+            <div class="col-md-3 mb-3">
+                <label for="validationCustom03">Gender</label>
+                <select name="gender"  class="form-control" id="cars">
+                    <option  value="female">Female</option>
+                    <option  value="male">Male</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please provide a valid state.
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label>Birthdate</label>
+                <input type="date" class="form-control" id="validationCustom05" required name="birthdate">
+
+            </div>
+
             <div class="col-md-6 mb-3">
                 <label for="validationCustom03">Occupation</label>
                 <input type="text" class="form-control" id="validationCustom03" placeholder="Occupation" name="occupation" required>
@@ -73,36 +105,54 @@
                     Please provide a valid city.
                 </div>
             </div>
-        </div>
-        <p>Contact Person to be informed in case of sickness or death:</p>
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom03">Nationality</label>
+                <input type="text" class="form-control" id="validationCustom03" placeholder="Nationality" name="nationality" required>
+                <div class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
+            </div>
+         </div>
+            <hr>
+            <h2> Physical/Personal Details</h2>
+        @include('prisoner.physical-details')
+
+         <hr>
+         <p>Contact Person to be informed in case of sickness or death:</p>
            @include('prisoner.family')
-        <div class="col-md-6 mb-3">
+         <div class="col-md-6 mb-3">
             <label>Working Experience (Before Detention)</label>
-        </div>
+         </div>
 
             @include('prisoner.work-experience')
 
-        <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-3">
             <label>Hobbies and Skills</label>
-        </div>
-        <div class="col-md-6 mb-3 text-center">
+         </div>
+         <div class="col-md-6 mb-3 text-center">
             @include('prisoner.skills-hobbies')
-        </div>
-        <div class="col-md-6 mb-3">
+         </div>
+          <div class="col-md-6 mb-3">
             <label for="validationCustom03">Interviewer Name</label>
             <input type="text" class="form-control" id="validationCustom03" placeholder="Interviewer Name" name="interviewer" required>
             <div class="invalid-feedback">
                 Please provide a valid city.
             </div>
-        </div>
-        <div class="col-md-6 mb-3">
+         </div>
+         <div class="col-md-6 mb-3">
             <label for="validationCustom03">Designation</label>
             <input type="text" class="form-control" id="validationCustom03" placeholder="Designation" name="designation" required>
             <div class="invalid-feedback">
                 Please provide a valid city.
             </div>
-        </div>
-        <button class="btn btn-primary" style="margin-top: 30px" type="submit">Submit form</button>
+         </div>
+         <hr>
+          <h2>Jail Booking Sheet</h2>
+         @include('prisoner.booking-sheet')
+        <hr>
+        <h2>Offense Data</h2>
+        @include('prisoner.offense-data')
+         <button class="btn btn-primary" style="margin-top: 30px" type="submit">Submit form</button>
     </form>
 
     <script>

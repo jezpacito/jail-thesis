@@ -18,6 +18,10 @@ class Prisoner extends Model
         'status',
         'interviewer',
         'designation',
+        'nationality',
+        'alias',
+        'gender',
+        'birthdate'
     ];
 
 
