@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\BookingSheet;
+use App\Http\Requests\PrisonerFormRequest;
+use App\OffenseData;
+use App\PhysicalDetails;
 use App\Prisoner;
 use App\service\PrisonerService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PrisonerController extends Controller
 {
@@ -35,9 +40,16 @@ class PrisonerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PrisonerFormRequest $request)
     {
-        (new PrisonerService())->create($request);
+        DB::transaction(function () use ($request){
+            (new PrisonerService())->create($request);
+            OffenseData::create($request->all());
+            BookingSheet::create($request->all());
+            PhysicalDetails::create($request->all());
+        });
+
+
         return redirect()->route('prisoner.index')->withSuccess('Added prisoner successfully.');
     }
 
