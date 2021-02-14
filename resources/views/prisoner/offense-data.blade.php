@@ -43,7 +43,11 @@
         <label for="validationCustom04">Dare Release</label>
         <input type="date" class="form-control" id="validationCustom04" placeholder="Nearest Kin" required name="date_release">
     </div>
+    <div class="col-md-12 mb-3">
+        <label for="validationCustom04">Sentence by</label>
+        <input type="text" class="form-control" id="validationCustom04" placeholder="Sentence by" required name="sentence_by">
 
+    </div>
     <div class="col-md-12 mb-3">
         <label for="validationCustom04">Sentence</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" name="sentence" placeholder="Sentence" rows="3" required></textarea>
