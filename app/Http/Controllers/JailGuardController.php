@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\BookingSheet;
-use App\Http\Requests\PrisonerFormRequest;
-use App\OffenseData;
-use App\PhysicalDetails;
-use App\Prisoner;
-use App\service\PrisonerService;
+use App\JailGuard;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class PrisonerController extends Controller
+class JailGuardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +14,8 @@ class PrisonerController extends Controller
      */
     public function index()
     {
-        $prisoners = Prisoner::latest()->paginate(10);
-        return view('prisoner.index',compact('prisoners'));
+        $guards = JailGuard::latest()->paginate(10);
+        return view('guard.index',compact('guards'));
     }
 
     /**
@@ -31,7 +25,7 @@ class PrisonerController extends Controller
      */
     public function create()
     {
-        return view('prisoner.personal-data');
+        return view('guard.create');
     }
 
     /**
@@ -40,10 +34,14 @@ class PrisonerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PrisonerFormRequest $request)
+    public function store(Request $request)
     {
-        (new PrisonerService())->create($request);
-        return redirect()->route('prisoner.index')->withSuccess('Added prisoner successfully.');
+
+       $guard = new JailGuard($request->all());
+       $guard->creator_id = auth()->user()->id;
+       $guard->save();
+
+       return redirect()->route('guard.index')->withSuccess('Added successfully.');
     }
 
     /**
@@ -54,11 +52,7 @@ class PrisonerController extends Controller
      */
     public function show($id)
     {
-        $prisoner = Prisoner::with(['contacts','physicalDetails','offenseData','booking'])
-            ->where('id',$id)
-            ->first();
-
-        return view('prisoner.show',compact('prisoner'));
+        //
     }
 
     /**

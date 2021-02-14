@@ -62,4 +62,8 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($value);
     }
+
+    public function guards(){
+        return $this->hasMany(JailGuard::class);
+    }
 }

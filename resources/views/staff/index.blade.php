@@ -30,13 +30,14 @@
                                     <form method="POST" class="user" action="{{ route('register') }}">
                                         @csrf
                                         <div class="form-group row">
+
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control form-control-user @error('name') is-invalid @enderror" id="exampleFirstName"
                                                        placeholder="First Name"  >
                                                 @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
-                                     </span>
+                                                </span>
                                                 @enderror
                                             </div>
                                             <div class="col-sm-6">
@@ -49,6 +50,17 @@
                                                 @enderror
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <input type="text"name="username" class="form-control form-control-user @error('username') is-invalid @enderror" id="exampleInputEmail"
+                                                   placeholder="User Name">
+                                            @error('username')
+                                            <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                             </span>
+                                            @enderror
+                                        </div>
+
                                         <div class="form-group">
                                             <input type="email"name="email" value="{{ old('email') }}" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail"
                                                    placeholder="Email Address">

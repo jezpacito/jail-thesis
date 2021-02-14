@@ -12,21 +12,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/steps','step-test');
+Route::view('/stepss','step-test');
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+\Illuminate\Support\Facades\Auth::routes();
 
 Route::resource('prisoner','PrisonerController');
+Route::resource('guard','JailGuardController');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
+
 Route::get('/staff', 'UserController@staff');
+
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
+
 Route::get('/view/staff/{staff}','UserController@show');
 
 Route::get('/about', function () {

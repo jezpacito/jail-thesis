@@ -49,7 +49,7 @@
                                               <a href="#" style="margin-right:5px " >
                                                   <span class="material-icons">edit</span>
                                               </a>
-                                              <a href="">
+                                              <a href="/prisoner/{{$prison->id}}">
                                                   <span class="material-icons">preview</span>
                                               </a>
                                           </div>

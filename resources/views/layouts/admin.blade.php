@@ -108,11 +108,11 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Jail Guards Information:</h6>
-                    <a class="collapse-item" href="#">Jail Guard List</a>
-                    <a class="collapse-item" href="#">#</a>
-                    <a class="collapse-item" href="#">#</a>
-                    <a class="collapse-item" href="utilities-border.html">#</a>
-                    <a class="collapse-item" href="#">#</a>
+                    <a class="collapse-item" href="/guard/create">Register Jail Guard</a>
+                    <a class="collapse-item" href="/guard">List of Jail Guards</a>
+{{--                    <a class="collapse-item" href="#">#</a>--}}
+{{--                    <a class="collapse-item" href="utilities-border.html">#</a>--}}
+{{--                    <a class="collapse-item" href="#">#</a>--}}
 
                 </div>
             </div>
