@@ -112,6 +112,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Username</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                     </thead>
@@ -120,6 +121,7 @@
                                     <tr>
                                         <td>{{$user->name}} {{$user->last_name}}</td>
                                         <td>{{$user->email}}</td>
+                                        <td>{{$user->username}}</td>
                                         <td class="text-center">
                                             <div class="text-center">
                                                 <a href="#" class="mr-3" >
