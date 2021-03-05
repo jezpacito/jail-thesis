@@ -16,14 +16,14 @@ Route::view('/stepss','step-test');
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 \Illuminate\Support\Facades\Auth::routes();
 
 Route::resource('prisoner','PrisonerController');
-Route::resource('guard','JailGuardController');
 
+Route::resource('guard','JailGuardController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

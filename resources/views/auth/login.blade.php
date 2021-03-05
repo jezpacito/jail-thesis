@@ -7,7 +7,11 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+{{--                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>--}}
+                        <div class="col-lg-6 text-center pt-4 pl-5">
+                            <img src="{{asset('/img/bgmp-logo.png')}}">
+                        </div>
+
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
@@ -53,20 +57,19 @@
                                 </form>
 
                                 <hr>
+{{--                                @if (Route::has('password.request'))--}}
+{{--                                    <div class="text-center">--}}
+{{--                                        <a class="small" href="{{ route('password.request') }}">--}}
+{{--                                            {{ __('Forgot Password?') }}--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
 
-                                @if (Route::has('password.request'))
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Password?') }}
-                                        </a>
-                                    </div>
-                                @endif
-
-                                @if (Route::has('register'))
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">{{ __('Create an Account!') }}</a>
-                                    </div>
-                                @endif
+{{--                                @if (Route::has('register'))--}}
+{{--                                    <div class="text-center">--}}
+{{--                                        <a class="small" href="{{ route('register') }}">{{ __('Create an Account!') }}</a>--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
                             </div>
                         </div>
                     </div>

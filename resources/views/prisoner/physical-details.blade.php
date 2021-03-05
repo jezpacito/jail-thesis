@@ -28,10 +28,10 @@
         <input type="text" class="form-control" id="validationCustom04" placeholder="Complexion" required name="complexion">
     </div>
 
-    <div class="col-md-4 mb-3">
-        <label for="validationCustom04">Religion</label>
-        <input type="text" class="form-control" id="validationCustom04" placeholder="Religion" required name="religion">
-    </div>
+{{--    <div class="col-md-4 mb-3">--}}
+{{--        <label for="validationCustom04">Religion</label>--}}
+{{--        <input type="text" class="form-control" id="validationCustom04" placeholder="Religion" required name="religion">--}}
+{{--    </div>--}}
     <div class="col-md-6 mb-3">
         <label for="validationCustom04">Religion</label>
         <input type="text" class="form-control" id="validationCustom04" placeholder="Religion" required name="religion">
