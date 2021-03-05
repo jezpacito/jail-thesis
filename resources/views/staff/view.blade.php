@@ -17,8 +17,8 @@
                         <input readonly="readonly" type="text" class="form-control"  placeholder="{{$staff->last_name}}">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Email</label>
-                        <input readonly="readonly" type="email" class="form-control" id="inputEmail4" placeholder="{{$staff->email}}">
+                        <label for="inputEmail4">Username</label>
+                        <input readonly="readonly" type="text" class="form-control" id="inputEmail4" placeholder="{{$staff->username}}">
                     </div>
 
                 </div>

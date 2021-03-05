@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-4 mb-3">
                 <label for="validationCustom02">Middle name</label>
-                <input type="text" class="form-control" id="validationCustom02" placeholder="Middle name" name="middlename" required>
+                <input type="text" class="form-control" id="validationCustom02" placeholder="Middle name" name="middlename" >
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -42,14 +42,7 @@
 
             <div class="col-md-4 mb-3">
                 <label for="validationCustom03">Permanent Address</label>
-                <input type="text" class="form-control" id="validationCustom03" placeholder="Permanent Address" name="permanent_address" required>
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="validationCustom03">Permanent Address</label>
-                <input type="text" class="form-control" id="validationCustom03" placeholder="Permanent Address" name="permanent_address" required>
+                <input type="text" class="form-control" id="validationCustom03" placeholder="Permanent Address" name="permanent_address" >
                 <div class="invalid-feedback">
                     Please provide a valid city.
                 </div>
@@ -75,13 +68,13 @@
                     Please provide a valid state.
                 </div>
             </div>
-            <div class="col-md-3 mb-3">
-                <label for="validationCustom05">Age</label>
-                <input type="number" class="form-control" id="validationCustom05" placeholder="Age" required name="age">
-                <div class="invalid-feedback">
-                    Please provide a valid zip.
-                </div>
-            </div>
+{{--            <div class="col-md-3 mb-3">--}}
+{{--                <label for="validationCustom05">Age</label>--}}
+{{--                <input type="number" class="form-control" id="validationCustom05" placeholder="Age" required name="age">--}}
+{{--                <div class="invalid-feedback">--}}
+{{--                    Please provide a valid zip.--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="col-md-3 mb-3">
                 <label for="validationCustom03">Gender</label>
                 <select name="gender"  class="form-control" id="cars">

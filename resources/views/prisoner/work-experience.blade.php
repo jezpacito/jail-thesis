@@ -2,15 +2,15 @@
 <div class="input-group control-group2 after-addMore1">
     <div class="col-md-3 mb-3">
         <label>Employeer Name</label>
-        <input type="text" class="form-control" id="validationCustom05" placeholder="Name" required name="employeer_name[]">
+        <input type="text" class="form-control" id="validationCustom05" placeholder="Name"  name="employeer_name[]">
     </div>
     <div class="col-md-3 mb-3">
         <label>Occupation</label>
-        <input type="text" class="form-control" id="validationCustom05" placeholder="Occupation" required name="occupation_work[]">
+        <input type="text" class="form-control" id="validationCustom05" placeholder="Occupation"  name="occupation_work[]">
     </div>
     <div class="col-md-3 mb-3">
         <label> Date Employed</label>
-        <input type="date" class="form-control" id="validationCustom05" placeholder="Contact Number" required name="date_employed[]">
+        <input type="date" class="form-control" id="validationCustom05" placeholder="Contact Number"  name="date_employed[]">
     </div>
 
     <div class="input-group-btn">
@@ -21,15 +21,15 @@
     <div class="control-group input-group" style="margin-top:10px">
         <div class="col-md-3 mb-3">
             <label>Employeer Name</label>
-            <input type="text" class="form-control" id="validationCustom05" placeholder="Name" required name="employeer_name[]">
+            <input type="text" class="form-control" id="validationCustom05" placeholder="Name"  name="employeer_name[]">
         </div>
         <div class="col-md-3 mb-3">
             <label>Occupation</label>
-            <input type="text" class="form-control" id="validationCustom05" placeholder="Occupation" required name="occupation_work[]">
+            <input type="text" class="form-control" id="validationCustom05" placeholder="Occupation"  name="occupation_work[]">
         </div>
         <div class="col-md-3 mb-3">
             <label> Date Employed</label>
-            <input type="date" class="form-control" id="validationCustom05" placeholder="Contact Number" required name="date_employed[]">
+            <input type="date" class="form-control" id="validationCustom05" placeholder="Contact Number"  name="date_employed[]">
         </div>
 
         <div class="input-group-btn" >

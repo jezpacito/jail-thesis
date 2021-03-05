@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'last_name' =>['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
 
         ]);
@@ -72,10 +72,12 @@ class RegisterController extends Controller
            $staff= User::create([
                 'name' => $data['name'],
                 'last_name' => $data['last_name'],
-                'email' => $data['email'],
+//                'email' => $data['email'],
                 'password' => $data['password'],
-               'username' => $data['username']
-            ]);
+               'username' => $data['username'],
+               'status' =>1
+
+           ]);
            $staff->assignRole('staff');
 
            return $staff;
@@ -83,10 +85,10 @@ class RegisterController extends Controller
           $admin=  User::create([
             'name' => $data['name'],
             'last_name' => $data['last_name'],
-            'email' => $data['email'],
+//            'email' => $data['email'],
             'password' => $data['password'],
-              'username' => $data['username']
-
+              'username' => $data['username'],
+              'status' =>1
           ]);
         $admin->assignRole('admin');
         return $admin;

@@ -17,14 +17,14 @@ class CreatePrisonersTable extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('middlename');
+            $table->string('middlename')->nullable();
             $table->string('alias');
             $table->string('nationality');
             $table->string('place_of_birth');
             $table->string('gender');
             $table->date('birthdate');
-            $table->longText('permanent_address');
-            $table->longText('previous_address');
+            $table->longText('permanent_address')->nullable();
+            $table->longText('previous_address')->nullable();
             $table->integer('age');
             $table->string('occupation');
             $table->enum('status', ['single','married','divorce','separated']);

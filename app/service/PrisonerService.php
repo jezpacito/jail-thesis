@@ -8,6 +8,7 @@ use App\BookingSheet;
 use App\OffenseData;
 use App\PhysicalDetails;
 use App\Prisoner;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class PrisonerService
@@ -16,7 +17,10 @@ class PrisonerService
     public function create($request){
 
         DB::transaction(function ()use ($request){
-            $prisoner = Prisoner::create($request->all());
+//            $prisoner = Prisoner::create($request->all());
+            $prisoner = new Prisoner($request->all());
+            $prisoner->age = Carbon::parse($request->birthdate)->age;
+            $prisoner->save();
             $prisoner->physicalDetails()->create($request->all());
             $prisoner->offenseData()->create($request->all());
             $prisoner->booking()->create($request->all());

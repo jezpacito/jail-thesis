@@ -61,15 +61,15 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group">
-                                            <input type="email"name="email" value="{{ old('email') }}" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail"
-                                                   placeholder="Email Address">
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                     </span>
-                                            @enderror
-                                        </div>
+{{--                                        <div class="form-group">--}}
+{{--                                            <input type="email"name="email" value="{{ old('email') }}" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail"--}}
+{{--                                                   placeholder="Email Address">--}}
+{{--                                            @error('email')--}}
+{{--                                            <span class="invalid-feedback" role="alert">--}}
+{{--                                            <strong>{{ $message }}</strong>--}}
+{{--                                     </span>--}}
+{{--                                            @enderror--}}
+{{--                                        </div>--}}
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
@@ -111,8 +111,8 @@
                                     <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Email</th>
                                         <th>Username</th>
+                                        <th>Status</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                     </thead>
@@ -120,13 +120,37 @@
                                     @foreach($users as $user)
                                     <tr>
                                         <td>{{$user->name}} {{$user->last_name}}</td>
-                                        <td>{{$user->email}}</td>
                                         <td>{{$user->username}}</td>
+                                        @if($user->status ==1)
+                                        <td class="text-primary"><b>Active</b></td>
+                                        @else
+                                            <td class="text-danger"><b>Inactive</b></td>
+                                        @endif
                                         <td class="text-center">
                                             <div class="text-center">
-                                                <a href="#" class="mr-3" >
-                                                    <span class="material-icons">block</span>
-                                                </a>
+                                                @if($user->status ==1)
+                                                    <form method="POST" action="{{url('/status').'/'.$user->id}}" autocomplete="off">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                                        <input type="hidden" name="_method" value="PUT">
+                                                        <button  class="border-0 btn bg-white" type="submit">
+                                                         <span class="material-icons">
+                                                             settings_applications
+                                                        </span>
+                                                        </button>
+
+                                                    </form>
+                                                @else
+                                                    <form method="POST" action="/status/{{$user->id}}" autocomplete="off">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <input type="hidden" name="_method" value="PUT">
+                                                        <button  class="border-0 btn bg-white" type="submit">
+                                                         <span class="material-icons">
+                                                             settings_applications
+                                                        </span>
+                                                        </button>
+                                                    </form>
+                                                    @endif
                                                 <a href="view/staff/{{$user->id}}">
                                                     <span class="material-icons">preview</span>
                                                 </a>

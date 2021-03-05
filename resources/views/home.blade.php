@@ -33,9 +33,9 @@
                                 No Of Prisoners</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\Prisoner::count()}}</div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
+{{--                        <div class="col-auto">--}}
+{{--                            <i class="fas fa-calendar fa-2x text-gray-300"></i>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -51,9 +51,9 @@
                                 No of Staff</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\User::role('staff')->count()}}</div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
+{{--                        <div class="col-auto">--}}
+{{--                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -68,10 +68,10 @@
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                 No of Jail Guards
                             </div>
-                            <div class="row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{\App\JailGuard::count()}}</div>
-                                </div>
+{{--                            <div class="row no-gutters align-items-center">--}}
+{{--                                <div class="col-auto">--}}
+{{--                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{\App\JailGuard::count()}}</div>--}}
+{{--                                </div>--}}
 {{--                                <div class="col">--}}
 {{--                                    <div class="progress progress-sm mr-2">--}}
 {{--                                        <div class="progress-bar bg-info" role="progressbar"--}}
@@ -79,7 +79,7 @@
 {{--                                             aria-valuemax="100"></div>--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
-                            </div>
+{{--                            </div>--}}
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -99,9 +99,9 @@
                                 No of Admins</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{\App\User::role('admin')->count()}}</div>
                         </div>
-                        <div class="col-auto">
-                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                        </div>
+{{--                        <div class="col-auto">--}}
+{{--                            <i class="fas fa-comments fa-2x text-gray-300"></i>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>

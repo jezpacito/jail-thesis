@@ -42,7 +42,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-book"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Jail Management<sup></sup></div>
+            <div class="sidebar-brand-text mx-1"> <sup>Jail Management & Monitoring System</sup></div>
         </a>
 
         <!-- Divider -->

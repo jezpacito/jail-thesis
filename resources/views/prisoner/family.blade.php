@@ -2,15 +2,16 @@
         <div class="input-group control-group after-add-more">
             <div class="col-md-3 mb-3">
                 <label>Name</label>
-                <input type="text" class="form-control" id="validationCustom05" placeholder="Name" required name="name[]">
+                <input type="text" class="form-control" id="validationCustom05" placeholder="Name"  name="name[]">
             </div>
             <div class="col-md-3 mb-3">
                 <label>Address</label>
-                <input type="text" class="form-control" id="validationCustom05" placeholder="Address" required name="address[]">
+                <input type="text" class="form-control" id="validationCustom05" placeholder="Address"  name="address[]">
             </div>
             <div class="col-md-3 mb-3">
                 <label>Contact Number</label>
-                <input type="number" class="form-control" id="validationCustom05" placeholder="Contact Number" required name="contact[]">
+                <input type="number" class="form-control" id="validationCustom05" placeholder="Contact Number"
+                       name="contact[]">
             </div>
 {{--            <input type="text" class="form-control" id="validationCustom05" placeholder="Relationship" required name="relationship[]">--}}
             <div class="col-md-2 mb-3">
@@ -33,15 +34,15 @@
         <div class="control-group input-group" style="margin-top:10px">
             <div class="col-md-3 mb-3">
                 <label>Name</label>
-                <input type="text" class="form-control" id="validationCustom05" placeholder="Name" required name="name[]">
+                <input type="text" class="form-control" id="validationCustom05" placeholder="Name"  name="name[]">
             </div>
             <div class="col-md-3 mb-3">
                 <label>Address</label>
-                <input type="text" class="form-control" id="validationCustom05" placeholder="Address" required name="address[]">
+                <input type="text" class="form-control" id="validationCustom05" placeholder="Address"  name="address[]">
             </div>
             <div class="col-md-3 mb-3">
                 <label>Contact Number</label>
-                <input type="number" class="form-control" id="validationCustom05" placeholder="Contact Number" required name="contact[]">
+                <input type="number" class="form-control" id="validationCustom05" placeholder="Contact Number"  name="contact[]">
             </div>
             {{--            <input type="text" class="form-control" id="validationCustom05" placeholder="Relationship" required name="relationship[]">--}}
             <div class="col-md-2 mb-3">
