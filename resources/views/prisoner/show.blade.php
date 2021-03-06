@@ -15,9 +15,15 @@
                         <div class="col-lg-6">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Prisoner Personal Data</h6>
+                                   <div style="display: flex; justify-content: space-between">
+                                       <h6 class="m-0 font-weight-bold text-primary">Prisoner Personal Data</h6>
+                                       <a href="/prisoner/{{$prisoner->id}}/physical_details" style="margin-right:5px " >
+                                           <span class="material-icons">edit</span>
+                                       </a>
+                                   </div>
                                 </div>
                                 <div class="card-body">
+
                                     <p><b>Prisoner's Name: </b>{{$prisoner->firstname}} {{$prisoner->middlename}} "{{$prisoner->alias}}" {{$prisoner->lastname}}</p>
                                     <p><b>Place of Birth:</b> {{$prisoner->place_of_birth}}</p>
                                     <p><b>Permanent Address:</b> {{$prisoner->permanent_address}}</p>
@@ -34,7 +40,12 @@
                             <!-- Basic Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Physical Details</h6>
+                                    <div style="display: flex; justify-content: space-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Physical Details</h6>
+                                        <a href="#" style="margin-right:5px " >
+                                            <span class="material-icons">edit</span>
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <div class="card-body">
@@ -53,9 +64,13 @@
                             <!-- Dropdown Card Example -->
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Jail Booking Sheet & Offense Data</h6>
+                                <div class="card-header py-3">
+                                    <div style="display: flex; justify-content: space-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Jail Booking Sheet & Offense Data</h6>
+                                        <a href="/prisoner/{{$prisoner->id}}/jailBookingOffense" style="margin-right:5px " >
+                                            <span class="material-icons">edit</span>
+                                        </a>
+                                    </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">

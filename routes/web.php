@@ -21,47 +21,58 @@ Route::get('/', function () {
 
 \Illuminate\Support\Facades\Auth::routes();
 
-Route::resource('prisoner','PrisonerController');
+Route::middleware('auth')->group(function () {
+    Route::resource('prisoner','PrisonerController');
 
-Route::resource('guard','JailGuardController');
+    Route::resource('guard','JailGuardController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::get('/profile', 'ProfileController@index')->name('profile');
 
-Route::get('/staff', 'UserController@staff');
+    Route::get('/staff', 'UserController@staff');
 
-Route::put('/profile', 'ProfileController@update')->name('profile.update');
+    Route::put('/profile', 'ProfileController@update')->name('profile.update');
 
-Route::get('/view/staff/{staff}','UserController@show');
+    Route::get('/view/staff/{staff}','UserController@show');
 
-Route::put('/status/{staff}','UserController@update_status');
+    Route::put('/status/{staff}','UserController@update_status');
 
-Route::put('/staff/update/{staff}','UserController@update');
+    Route::put('/staff/update/{staff}','UserController@update');
 
+    Route::get('/prisoner/{prisoner}/physical_details','PrisonerController@edit_prisoner_personal_data');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+    Route::put('/prisoner/{prisoner}/physical_details','PrisonerController@update_prisoner_personal_data');
 
+    Route::get('/prisoner/{prisoner}/jailBookingOffense','PrisonerController@edit_jail_booking_and_offense_data');
 
-Route::get('/temp',function (){
-return view('prisoner.insert');
-});
+    Route::put('/prisoner/{prisoner}/jailBookingOffense','PrisonerController@update_jail_booking_and_offense_data');
 
-Route::post('/contact-form',function (){
-   dd(request()->all());
-});
-
-Route::get('rfid-test',function (){
-   return view('prisoner.autosave');
-});
-
-Route::get('test',function (){
-    return view('test');
-});
+    Route::get('/about', function () {
+        return view('about');
+    })->name('about');
 
 
-Route::view('/table','tables');
+    Route::get('/temp',function (){
+        return view('prisoner.insert');
+    });
 
-Route::view('/staffs','staff.index');
+    Route::post('/contact-form',function (){
+        dd(request()->all());
+    });
+
+    Route::get('rfid-test',function (){
+        return view('prisoner.autosave');
+    });
+
+    Route::get('test',function (){
+        return view('test');
+    });
+
+
+    Route::view('/table','tables');
+
+    Route::view('/staffs','staff.index');
+
+
+    });

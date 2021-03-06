@@ -139,6 +139,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Barryvdh\DomPDF\ServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
@@ -191,6 +192,7 @@ return [
     */
 
     'aliases' => [
+        'PDF' => Barryvdh\DomPDF\Facade::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,

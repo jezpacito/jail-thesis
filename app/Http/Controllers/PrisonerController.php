@@ -13,6 +13,32 @@ use Illuminate\Support\Facades\DB;
 
 class PrisonerController extends Controller
 {
+
+    public function update_jail_booking_and_offense_data(Prisoner $prisoner){
+        $prisoner->booking->update(request()->all());
+        $prisoner->offenseData->update(request()->all());
+        return redirect()->back()->with('success','Update Success!');
+    }
+    public function edit_jail_booking_and_offense_data(Prisoner $prisoner){
+        return view('prisoner.jail_booking_offense_update',compact('prisoner'));
+    }
+    public function update_prisoner_personal_data(Prisoner $prisoner){
+        DB::transaction(function ()use ($prisoner){
+            $prisoner->update(request()->all());
+            $prisoner->physicalDetails->update(request()->all());
+        });
+
+        return redirect()->back()->with('success','Personal Data Updated');
+    }
+
+    public function edit_prisoner_personal_data(Prisoner $prisoner){
+        $prisoner = Prisoner::with(['contacts','physicalDetails','offenseData','booking'])
+            ->where('id',$prisoner->id)
+            ->first();
+
+
+        return view('prisoner.prisoner_personal_data_update',compact('prisoner'));
+    }
     /**
      * Display a listing of the resource.
      *
