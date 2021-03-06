@@ -17,7 +17,7 @@ class UserController extends Controller
        return view('staff.view',compact('staff'));
     }
 
-    public function update(User $staff){
+    public function update_status(User $staff){
         if($staff->status ==1){
             $staff->update(['status'=>0]);
         }
@@ -26,6 +26,10 @@ class UserController extends Controller
 
         }
         return redirect()->back()->with('success', 'Status Updated!');
+    }
+    public function update(User $staff){
+        $staff->update(request()->all());
+        return redirect()->back()->with('success', 'Staff Updated!');
     }
 
 }

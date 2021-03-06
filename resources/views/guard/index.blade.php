@@ -44,7 +44,7 @@
                                             <td>{{$guard->creator->name}} {{$guard->creator->last_name}}</td>
                                             <td>
                                                 <div style="display: flex">
-                                                    <a href="#" style="margin-right:5px " >
+                                                    <a href="/guard/{{$guard->id}}/edit" style="margin-right:5px " >
                                                         <span class="material-icons">edit</span>
                                                     </a>
                                                     <a href="#">

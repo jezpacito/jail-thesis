@@ -35,7 +35,10 @@ Route::put('/profile', 'ProfileController@update')->name('profile.update');
 
 Route::get('/view/staff/{staff}','UserController@show');
 
-Route::put('/status/{staff}','UserController@update');
+Route::put('/status/{staff}','UserController@update_status');
+
+Route::put('/staff/update/{staff}','UserController@update');
+
 
 Route::get('/about', function () {
     return view('about');

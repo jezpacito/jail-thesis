@@ -63,7 +63,8 @@ class JailGuardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guard = JailGuard::findOrFail($id);
+        return view('guard.update',compact('guard'));
     }
 
     /**
@@ -75,7 +76,9 @@ class JailGuardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $guard = JailGuard::findOrFail($id);
+        $guard->update($request->all());
+        return redirect()->back()->with('success','Jail Guard Updated!');
     }
 
     /**
