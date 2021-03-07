@@ -16,9 +16,9 @@ class CreateWorkExperiencesTable extends Migration
         Schema::create('work_experiences', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('prisoner_id');
-            $table->string('occupation_work');
-            $table->string('employeer_name');
-            $table->date('date_employed');
+            $table->string('occupation_work')->nullable();
+            $table->string('employeer_name')->nullable();
+            $table->date('date_employed')->nullable();
             $table->timestamps();
         });
     }

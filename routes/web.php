@@ -40,14 +40,31 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/staff/update/{staff}','UserController@update');
 
-    Route::get('/prisoner/{prisoner}/physical_details','PrisonerController@edit_prisoner_personal_data');
 
-    Route::put('/prisoner/{prisoner}/physical_details','PrisonerController@update_prisoner_personal_data');
+    Route::prefix('prisoner')->group(function () {
+        Route::get('/{prisoner}/physical_details','PrisonerController@edit_prisoner_personal_data');
 
-    Route::get('/prisoner/{prisoner}/jailBookingOffense','PrisonerController@edit_jail_booking_and_offense_data');
+        Route::put('/{prisoner}/physical_details','PrisonerController@update_prisoner_personal_data');
 
-    Route::put('/prisoner/{prisoner}/jailBookingOffense','PrisonerController@update_jail_booking_and_offense_data');
+        Route::get('/{prisoner}/jailBookingOffense','PrisonerController@edit_jail_booking_and_offense_data');
 
+        Route::put('/{prisoner}/jailBookingOffense','PrisonerController@update_jail_booking_and_offense_data');
+
+        Route::get('/{prisoner}/physicalDefense','PrisonerController@edit_physical_defense');
+
+        Route::put('/{prisoner}/physicalDefense','PrisonerController@update_physical_defense');
+
+    });
+
+    Route::prefix('report')->group(function () {
+        Route::get('/monthly/report','ReportController@monthly');
+        Route::post('/generate','ReportController@report');
+
+        Route::get('/quarterly/report','ReportController@quarterly');
+        Route::get('/yearly/report','ReportController@yearly');
+        Route::get('/select','ReportController@select');
+
+    });
     Route::get('/about', function () {
         return view('about');
     })->name('about');

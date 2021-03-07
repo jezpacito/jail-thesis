@@ -8,23 +8,39 @@ use App\OffenseData;
 use App\PhysicalDetails;
 use App\Prisoner;
 use App\service\PrisonerService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PrisonerController extends Controller
 {
 
+    public function update_physical_defense(Prisoner $prisoner){
+        $prisoner->physicalDetails->update(request()->all());
+        return redirect()->back()->with('success','Update Success!');
+    }
+
+    public function edit_physical_defense(Prisoner $prisoner){
+        return view('prisoner.physical_defense_update',compact('prisoner'));
+    }
+
     public function update_jail_booking_and_offense_data(Prisoner $prisoner){
         $prisoner->booking->update(request()->all());
         $prisoner->offenseData->update(request()->all());
         return redirect()->back()->with('success','Update Success!');
     }
+
     public function edit_jail_booking_and_offense_data(Prisoner $prisoner){
         return view('prisoner.jail_booking_offense_update',compact('prisoner'));
     }
-    public function update_prisoner_personal_data(Prisoner $prisoner){
-        DB::transaction(function ()use ($prisoner){
-            $prisoner->update(request()->all());
+
+    public function update_prisoner_personal_data(Request $request,Prisoner $prisoner){
+        DB::transaction(function ()use ($prisoner,$request){
+            if(request()->has('birthdate')){
+              $age= Carbon::parse($request->birthdate)->age;
+                $request['age'] =$age;
+            }
+            $prisoner->update($request->all());
             $prisoner->physicalDetails->update(request()->all());
         });
 

@@ -20,6 +20,18 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Prisoner's List</h6>
+                        <div class="row mt-2">
+                            <div class="ml-2 form-group">
+
+                                @include('reports.monthly')
+                            </div>
+                            <div class="form-group ml-2 ">
+                            @include('reports.yearly')
+                            </div>
+                            <div class=" form-group ml-2">
+{{--                            @include('reports.quarterly')--}}
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -43,7 +55,7 @@
                                        <td>{{$prison->permanent_address}}</td>
                                        <td>{{$prison->age}}</td>
                                        <td>not yet</td>
-                                       <td>{{$prison->created_at}}</td>
+                                       <td>{{$prison->offenseData->date_imprisonment}}</td>
                                        <td>
                                           <div style="display: flex">
 

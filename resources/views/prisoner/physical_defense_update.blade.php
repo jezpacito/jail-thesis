@@ -15,12 +15,12 @@
                         <div class="col-lg-6">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                   <div style="display: flex; justify-content: space-between">
-                                       <h6 class="m-0 font-weight-bold text-primary">Prisoner Personal Data</h6>
-                                       <a href="/prisoner/{{$prisoner->id}}/physical_details" style="margin-right:5px " >
-                                           <span class="material-icons">edit</span>
-                                       </a>
-                                   </div>
+                                    <div style="display: flex; justify-content: space-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Prisoner Personal Data</h6>
+                                        <a href="/prisoner/{{$prisoner->id}}/physical_details" style="margin-right:5px " >
+                                            <span class="material-icons">edit</span>
+                                        </a>
+                                    </div>
                                 </div>
                                 <div class="card-body">
 
@@ -42,24 +42,50 @@
                                 <div class="card-header py-3">
                                     <div style="display: flex; justify-content: space-between">
                                         <h6 class="m-0 font-weight-bold text-primary">Physical Details</h6>
-                                        <a href="/prisoner/{{$prisoner->id}}/physicalDefense" style="margin-right:5px " >
+                                        <a href="#" style="margin-right:5px " >
                                             <span class="material-icons">edit</span>
                                         </a>
                                     </div>
                                 </div>
 
-                                <div class="card-body">
-                                    <p><b>Height:</b> {{$prisoner->physicalDetails->height}}
-                                    <p><b>Weight:</b> {{$prisoner->physicalDetails->weight}}</p>
-                                    <p><b>Hair:</b> {{$prisoner->physicalDetails->hair}}</p>
-                                    <p><b>Complexion:</b> {{$prisoner->physicalDetails->complexion}}</p>
-                                    <p><b>Bertillon Marks:</b> {{$prisoner->physicalDetails->bertillon_marks}}</p>
+                                <form action="{{url('/prisoner').'/'.$prisoner->id.'/'.'physicalDefense'}}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <small id="emailHelp" class="form-text text-muted">Height</small>
+                                                <input  class="form-control form-control-sm border-top-0 border-left-0 border-right-0" type="text" name="height"   value="{{$prisoner->physicalDetails->height}}">
+                                            </div>
+                                            <div class="col">
+                                                <small id="emailHelp" class="form-text text-muted">Weight</small>
+                                                <input  class="form-control form-control-sm border-top-0 border-left-0 border-right-0" type="text" name="weight"   value="{{$prisoner->physicalDetails->weight}}">
+                                            </div>
+                                            <div class="col">
+                                                <small id="emailHelp" class="form-text text-muted">Hair</small>
+                                                <input  class="form-control form-control-sm border-top-0 border-left-0 border-right-0" type="text" name="hair"   value="{{$prisoner->physicalDetails->hair}}">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <small id="emailHelp" class="form-text text-muted">Complexion</small>
+                                                <input  class="form-control form-control-sm border-top-0 border-left-0 border-right-0" type="text" name="complexion"   value="{{$prisoner->physicalDetails->complexion}}">
+                                            </div>
+                                            <div class="col">
+                                                <small id="emailHelp" class="form-text text-muted">Bertillon Marks</small>
+                                                <input  class="form-control form-control-sm border-top-0 border-left-0 border-right-0" type="text" name="bertillon_marks"   value="{{$prisoner->physicalDetails->bertillon_marks}}">
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-secondary mt-2 " type="submit">Update</button>
+                                        <a href="{{url('/prisoner').'/'.$prisoner->id}}" class="btn btn-primary btn-sm mt-2">
+                                            Cancel
+                                        </a>
+                                    </div>
 
-                                </div>
+                                </form>
                             </div>
 
                         </div>
-
                         <div class="col-lg-6">
                             <!-- Dropdown Card Example -->
                             <div class="card shadow mb-4">
@@ -92,27 +118,7 @@
                                     <p><b>Sentence:</b> {{$prisoner->offenseData->sentence}}</p>
                                 </div>
                             </div>
-
-                            <!-- Collapsable Card Example -->
-{{--                            <div class="card shadow mb-4">--}}
-{{--                                <!-- Card Header - Accordion -->--}}
-{{--                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"--}}
-{{--                                   role="button" aria-expanded="true" aria-controls="collapseCardExample">--}}
-{{--                                    <h6 class="m-0 font-weight-bold text-primary">Collapsable Card Example</h6>--}}
-{{--                                </a>--}}
-{{--                                <!-- Card Content - Collapse -->--}}
-{{--                                <div class="collapse show" id="collapseCardExample">--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        This is a collapsable card example using Bootstrap's built in collapse--}}
-{{--                                        functionality. <strong>Click on the card header</strong> to see the card body--}}
-{{--                                        collapse and expand!--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
                         </div>
-
-
                     </div>
 
                 </div>
@@ -130,7 +136,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">

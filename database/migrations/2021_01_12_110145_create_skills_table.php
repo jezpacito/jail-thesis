@@ -16,7 +16,7 @@ class CreateSkillsTable extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('prisoner_id');
-            $table->string('skills');
+            $table->string('skills')->nullable();
             $table->timestamps();
         });
     }

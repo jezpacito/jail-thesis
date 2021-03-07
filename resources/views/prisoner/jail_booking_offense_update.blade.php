@@ -41,7 +41,7 @@
                                 <div class="card-header py-3">
                                     <div style="display: flex; justify-content: space-between">
                                         <h6 class="m-0 font-weight-bold text-primary">Physical Details</h6>
-                                        <a href="#" style="margin-right:5px " >
+                                        <a href="/prisoner/{{$prisoner->id}}/physicalDefense" style="margin-right:5px " >
                                             <span class="material-icons">edit</span>
                                         </a>
                                     </div>
@@ -202,12 +202,13 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <button class="btn btn-sm btn-secondary mt-2 ">Update</button>
+                                        <a href="{{url('/prisoner').'/'.$prisoner->id}}" class="btn btn-primary btn-sm mt-2">
+                                            Cancel
+                                        </a>
                                     </div>
 
-                                    <button class="btn btn-sm btn-secondary mt-2 ">Update</button>
-                                    <a href="{{url('/prisoner').'/'.$prisoner->id}}" class="btn btn-primary btn-sm mt-2">
-                                        Cancel
-                                    </a>
+
                                 </form>
                             </div>
 

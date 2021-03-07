@@ -17,10 +17,10 @@ class CreateContactPeopleTable extends Migration
             $table->id();
             $table->unsignedBigInteger('contact_people_type_id')->nullable();
             $table->unsignedBigInteger('prisoner_id')->nullable();
-            $table->string('name');
-            $table->longText('address');
-            $table->string('contact');
-            $table->string('relationship');
+            $table->string('name')->nullable();
+            $table->longText('address')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('relationship')->nullable();
             $table->timestamps();
         });
     }
