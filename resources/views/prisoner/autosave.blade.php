@@ -23,7 +23,7 @@
 
 
                                 <div class="card-body">
-                                    <input type="text" onfocus="this.value=''" class="form-control" name="card_id"><br>
+                                    <input type="text" onfocus="this.value=''" class="form-control" name="card_id" id="my-input"><br>
                                 </div>
 
                         </div>
@@ -34,7 +34,12 @@
 
     </form>
     <div class="form-status-holder"></div>
-
+<script>
+    setInterval(
+        function() {
+            document.getElementById("my-input").value = "";
+        }, 600);
+</script>
     <script>
         var timeoutId;
         $('form input, form textarea').on('input propertychange change', function() {
