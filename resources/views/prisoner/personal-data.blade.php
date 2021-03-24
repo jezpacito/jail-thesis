@@ -105,6 +105,13 @@
                     Please provide a valid city.
                 </div>
             </div>
+            <div class="col-md-6 mb-3">
+                <label for="validationCustom03">RFID Number</label>
+                <input type="text" class="form-control" id="validationCustom03" placeholder="RFID Number" name="rfid_uuid" required>
+                <div class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
+            </div>
          </div>
             <hr>
             <h2> Physical/Personal Details</h2>

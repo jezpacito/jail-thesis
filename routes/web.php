@@ -74,8 +74,29 @@ Route::middleware('auth')->group(function () {
         return view('prisoner.insert');
     });
 
-    Route::post('/contact-form',function (){
-        dd(request()->all());
+
+    Route::get('prisoner/logs/timein',function (){
+        $attendances = \App\Attendance::with('prisoner')->get();
+        return view('logs.prisoner-logs',compact('attendances'));
+    });
+    Route::post('/contact-form',function () {
+//        dd(request()->all());
+
+        $prisoner = \App\Prisoner::where('rfid_uuid',request()->card_id)->first();git add
+        $attendance = \App\Attendance::where('rfid_uuid',request()->card_id)->first();
+        if($prisoner->attendances()->first() == null){
+            $attendance = \App\Attendance::create([
+                'prisoner_id' =>$prisoner->id,
+                'rfid_uuid' =>request()->card_id,
+                'dateTime_in' =>\Carbon\Carbon::now(),
+            ]);
+        }else{
+            $attendance->update(['dateTime_out'=>\Carbon\Carbon::now()]);
+
+        }
+
+        return $attendance;
+
     });
 
     Route::get('rfid-test',function (){

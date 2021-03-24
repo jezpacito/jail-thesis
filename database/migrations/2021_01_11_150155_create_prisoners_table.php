@@ -30,6 +30,7 @@ class CreatePrisonersTable extends Migration
             $table->enum('status', ['single','married','divorce','separated']);
             $table->string('interviewer');
             $table->longText('designation');
+            $table->string('rfid_uuid');
             $table->timestamps();
         });
     }
