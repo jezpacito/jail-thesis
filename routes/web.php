@@ -82,20 +82,28 @@ Route::middleware('auth')->group(function () {
     Route::post('/contact-form',function () {
 //        dd(request()->all());
 
-        $prisoner = \App\Prisoner::where('rfid_uuid',request()->card_id)->first();git add
+        $prisoner = \App\Prisoner::where('rfid_uuid',request()->card_id)->first();
         $attendance = \App\Attendance::where('rfid_uuid',request()->card_id)->first();
-        if($prisoner->attendances()->first() == null){
+
+
+        if($prisoner->attendaces ==null){
             $attendance = \App\Attendance::create([
                 'prisoner_id' =>$prisoner->id,
                 'rfid_uuid' =>request()->card_id,
                 'dateTime_in' =>\Carbon\Carbon::now(),
             ]);
-        }else{
-            $attendance->update(['dateTime_out'=>\Carbon\Carbon::now()]);
-
+            return $attendance;
         }
+            if($attendance->dateTime_in !=null){
+            $at = \App\Attendance::findOrFail($attendance->id);
+            $at->update(['dateTime_out' =>\Carbon\Carbon::now()
 
-        return $attendance;
+            ]);
+                return $at;
+
+
+            }
+
 
     });
 
