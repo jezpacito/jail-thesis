@@ -20,8 +20,6 @@
                             </button>
                         </div>
                         <div class="modal-body">
-
-
                                 <div class="card-body">
                                     <input type="text" onfocus="this.value=''" class="form-control" name="card_id" id="my-input"><br>
                                 </div>

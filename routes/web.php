@@ -78,7 +78,7 @@ Route::middleware('auth')->group(function () {
         dd(request()->all());
     });
 
-    Route::get('rfid-test',function (){
+    Route::get('rfid-test', function (){
         return view('prisoner.autosave');
     });
 
