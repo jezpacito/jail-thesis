@@ -5,9 +5,9 @@
     <form class="contact-form" method="post">
         @csrf
         <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Assign RFID
-            </button>
+{{--            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">--}}
+{{--                Assign RFID--}}
+{{--            </button>--}}
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -22,9 +22,9 @@
                         <div class="modal-body">
 
 
-                                <div class="card-body">
-                                    <input type="text" onfocus="this.value=''" class="form-control" name="card_id" id="my-input"><br>
-                                </div>
+{{--                                <div class="card-body">--}}
+{{--                                    <input type="text" onfocus="this.value=''" class="form-control" name="card_id" id="my-input"><br>--}}
+{{--                                </div>--}}
 
                         </div>
 
@@ -32,14 +32,13 @@
                 </div>
             </div>
 
+            <div class="card-body">
+                <input type="text" onfocus="this.value=''" class="form-control" name="card_id" id="my-input"><br>
+            </div>
+
     </form>
     <div class="form-status-holder"></div>
-<script>
-    setInterval(
-        function() {
-            document.getElementById("my-input").value = "";
-        }, 600);
-</script>
+
     <script>
         var timeoutId;
         $('form input, form textarea').on('input propertychange change', function() {
@@ -67,6 +66,10 @@
                 success: function(data) {
                     var jqObj = jQuery(data); // You can get data returned from your ajax call here. ex. jqObj.find('.returned-data').html()
                     // Now show them we saved and when we did
+
+                    //this will clear input after sending data
+                    $('input[type="text"],textarea').val('');
+
                     var d = new Date();
                     $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
                 },
@@ -79,5 +82,17 @@
             saveToDB();
             e.preventDefault();
         });
+    </script>
+    <script>
+
+//        $('form input, form textarea').on('input propertychange change', function() {
+//            setInterval(
+//                function() {
+//                    document.getElementById("my-input").resetvalue = "";
+//                }, 3000);
+//
+//        });
+
+
     </script>
     @endsection
