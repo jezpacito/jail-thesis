@@ -74,9 +74,7 @@ Route::middleware('auth')->group(function () {
         return view('prisoner.insert');
     });
 
-    Route::post('/contact-form',function (){
-        dd(request()->all());
-    });
+    Route::post('/contact-form','LogsController@attendance');
 
     Route::get('rfid-test',function (){
         return view('prisoner.autosave');

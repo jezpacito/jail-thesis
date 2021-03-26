@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <!-- Required meta tags -->
@@ -138,9 +138,9 @@
         </li>
         @endrole
         <li class="nav-item active">
-            <a class="nav-link" href="/table">
+            <a class="nav-link" href="/rfid-test">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
+                <span>SCAN RFID</span></a>
         </li>
 
 

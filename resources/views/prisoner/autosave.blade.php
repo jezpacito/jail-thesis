@@ -21,20 +21,22 @@
                         </div>
                         <div class="modal-body">
 
-
 {{--                                <div class="card-body">--}}
 {{--                                    <input type="text" onfocus="this.value=''" class="form-control" name="card_id" id="my-input"><br>--}}
 {{--                                </div>--}}
 
                         </div>
-
                     </div>
                 </div>
             </div>
+            <div class="card text-center" >
 
-            <div class="card-body">
-                <input type="text" onfocus="this.value=''" class="form-control" name="card_id" id="my-input"><br>
+                <div class="card-body">
+                    <lable> TAP YOU RFID HERE</lable>
+                    <input type="text" onfocus="this.value=''" class="form-control" name="card_id" id="my-input"><br>
+                </div>
             </div>
+
 
     </form>
     <div class="form-status-holder"></div>
@@ -61,17 +63,27 @@
                 data: form.serialize(), // serializes the form's elements.
                 beforeSend: function(xhr) {
                     // Let them know we are saving
-                    $('.form-status-holder').html('Saving...');
+
+                    var status= 'saving';
+                   var th= $('.form-status-holder').html(status);
+
+                   window.onerror = function () {
+                       alert("rfid card does not exist!");
+                   }
+
                 },
                 success: function(data) {
                     var jqObj = jQuery(data); // You can get data returned from your ajax call here. ex. jqObj.find('.returned-data').html()
                     // Now show them we saved and when we did
 
-                    //this will clear input after sending data
+                    //this will clear input after sending data to server
                     $('input[type="text"],textarea').val('');
 
                     var d = new Date();
                     $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
+
+
+
                 },
             });
         }
@@ -82,17 +94,5 @@
             saveToDB();
             e.preventDefault();
         });
-    </script>
-    <script>
-
-//        $('form input, form textarea').on('input propertychange change', function() {
-//            setInterval(
-//                function() {
-//                    document.getElementById("my-input").resetvalue = "";
-//                }, 3000);
-//
-//        });
-
-
     </script>
     @endsection

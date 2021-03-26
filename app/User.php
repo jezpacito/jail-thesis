@@ -18,7 +18,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'last_name', 'password','username',
-        'status'
+        'status',
+        'rfid_uuid'
 //        , 'email'
     ];
 
@@ -67,5 +68,9 @@ class User extends Authenticatable
 
     public function guards(){
         return $this->hasMany(JailGuard::class);
+    }
+
+    public function logs(){
+        return $this->hasMany(Logs::class,'user_id','id');
     }
 }
