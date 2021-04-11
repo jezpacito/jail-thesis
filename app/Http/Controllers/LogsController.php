@@ -6,9 +6,16 @@ use App\Logs;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use App\Http\Resources\LogsResource;
 class LogsController extends Controller
 {
+
+    public function logs(){
+      $logs =  Logs::latest()->get() ;
+        return response()->json(
+            LogsResource::collection($logs)
+        );
+    }
     public function attendance(Request $req){
 
         $user= User::where('rfid_uuid',$req->card_id)->first();
@@ -46,7 +53,5 @@ class LogsController extends Controller
               return  $log->update(['time_out' =>Carbon::now()]);
             }
         }
-
-
     }
 }

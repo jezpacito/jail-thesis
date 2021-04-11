@@ -93,7 +93,7 @@
                     <h6 class="collapse-header">Prisoner's Personal Infos</h6>
                     <a class="collapse-item" href="/prisoner/create">Add Prisoner</a>
                     <a class="collapse-item" href="/prisoner">All Prisoners</a>
-{{--                    <a class="collapse-item" href="#">Previous Prisoners</a>--}}
+                   <a class="collapse-item" href="#">Prisoner's Logs</a>
 {{--                    <a class="collapse-item" href="#">Current Prisoners</a>--}}
                 </div>
             </div>

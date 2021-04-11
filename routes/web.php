@@ -75,6 +75,10 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::post('/contact-form','LogsController@attendance');
+    
+    Route::get('/logs',function(){
+        return view('prisoner.logs');
+    });
 
     Route::get('rfid-test',function (){
         return view('prisoner.autosave');
