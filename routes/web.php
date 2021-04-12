@@ -74,10 +74,12 @@ Route::middleware('auth')->group(function () {
         return view('prisoner.insert');
     });
 
-    Route::post('/contact-form',function (){
-        dd(request()->all());
+    
+    Route::get('/logs',function(){
+        return view('prisoner.logs');
     });
-
+    //rfid tap
+    Route::post('/contact-form','LogsController@attendance');
     Route::get('rfid-test', function (){
         return view('prisoner.autosave');
     });

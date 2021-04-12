@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <!-- Required meta tags -->
@@ -93,7 +93,7 @@
                     <h6 class="collapse-header">Prisoner's Personal Infos</h6>
                     <a class="collapse-item" href="/prisoner/create">Add Prisoner</a>
                     <a class="collapse-item" href="/prisoner">All Prisoners</a>
-{{--                    <a class="collapse-item" href="#">Previous Prisoners</a>--}}
+                   <a class="collapse-item" href="#">Prisoner's Logs</a>
 {{--                    <a class="collapse-item" href="#">Current Prisoners</a>--}}
                 </div>
             </div>
@@ -138,10 +138,16 @@
         </li>
         @endrole
         <li class="nav-item active">
-            <a class="nav-link" href="/table">
+            <a class="nav-link" href="/rfid-test">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
+                <span>SCAN RFID</span></a>
         </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/logs">
+                <i class="fas fa-fw fa-table"></i>
+                <span>RFID LOGS</span></a>
+        </li>
+
 
 
 
