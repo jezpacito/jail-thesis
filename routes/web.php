@@ -74,40 +74,13 @@ Route::middleware('auth')->group(function () {
         return view('prisoner.insert');
     });
 
-
-    Route::get('prisoner/logs/timein',function (){
-        $attendances = \App\Attendance::with('prisoner')->get();
-        return view('logs.prisoner-logs',compact('attendances'));
+    
+    Route::get('/logs',function(){
+        return view('prisoner.logs');
     });
-    Route::post('/contact-form',function () {
-//        dd(request()->all());
-
-        $prisoner = \App\Prisoner::where('rfid_uuid',request()->card_id)->first();
-        $attendance = \App\Attendance::where('rfid_uuid',request()->card_id)->first();
-
-
-        if($prisoner->attendaces ==null){
-            $attendance = \App\Attendance::create([
-                'prisoner_id' =>$prisoner->id,
-                'rfid_uuid' =>request()->card_id,
-                'dateTime_in' =>\Carbon\Carbon::now(),
-            ]);
-            return $attendance;
-        }
-            if($attendance->dateTime_in !=null){
-            $at = \App\Attendance::findOrFail($attendance->id);
-            $at->update(['dateTime_out' =>\Carbon\Carbon::now()
-
-            ]);
-                return $at;
-
-
-            }
-
-
-    });
-
-    Route::get('rfid-test',function (){
+    //rfid tap
+    Route::post('/contact-form','LogsController@attendance');
+    Route::get('rfid-test', function (){
         return view('prisoner.autosave');
     });
 

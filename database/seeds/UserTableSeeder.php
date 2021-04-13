@@ -18,7 +18,8 @@ class UserTableSeeder extends Seeder
 //            'email' =>'admin@gmail.com',
             'password' =>'password',
            'username' =>'adminUser',
-           'status' =>1
+           'status' =>1,
+           'rfid_uuid' =>45455454
             ]);
        $user->assignRole('admin');
 
@@ -28,7 +29,8 @@ class UserTableSeeder extends Seeder
 //            'email' =>'staff@gmail.com',
             'password' =>'password',
             'username' =>'staffUser',
-            'status' =>1
+            'status' =>1,
+            'rfid_uuid' =>12345678
 
         ]);
         $user->assignRole('staff');
