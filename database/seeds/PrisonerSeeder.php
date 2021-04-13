@@ -11,6 +11,6 @@ class PrisonerSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Prisoner::class,50)->create();
+        factory(\App\Prisoner::class,10)->create();
     }
 }

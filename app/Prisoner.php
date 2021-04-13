@@ -38,8 +38,7 @@ class Prisoner extends Model
     public function booking(){
         return $this->hasOne(BookingSheet::class);
     }
-
-    public function attendances(){
-        return $this->hasMany(Attendace::class);
+    public function logs(){
+        return $this->hasMany(Logs::class,'prisoner_id','id');
     }
 }
