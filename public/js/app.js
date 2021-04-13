@@ -1984,8 +1984,8 @@ __webpack_require__.r(__webpack_exports__);
     // console.log('Component mounted.')
     setInterval(function () {
       axios.get('api/logs').then(function (response) {
-        _this.datas = response.data;
         console.log(response.data);
+        _this.datas = response.data;
       });
     }, 1000); // fetch('http://127.0.0.1:8081/api/logs')
     // .then((res)=>res.json())
@@ -37679,9 +37679,9 @@ var render = function() {
                   return _c("tr", { key: data.id }, [
                     _c("th", { attrs: { scope: "row" } }, [
                       _vm._v(
-                        _vm._s(data.user.name) +
+                        _vm._s(data.prisoner.firstname) +
                           " " +
-                          _vm._s(data.user.last_name) +
+                          _vm._s(data.prisoner.lastname) +
                           " "
                       )
                     ]),

@@ -21,7 +21,8 @@ class Prisoner extends Model
         'nationality',
         'alias',
         'gender',
-        'birthdate'
+        'birthdate',
+        'rfid_uuid'
     ];
 
 
@@ -36,5 +37,8 @@ class Prisoner extends Model
     }
     public function booking(){
         return $this->hasOne(BookingSheet::class);
+    }
+    public function logs(){
+        return $this->hasMany(Logs::class,'prisoner_id','id');
     }
 }

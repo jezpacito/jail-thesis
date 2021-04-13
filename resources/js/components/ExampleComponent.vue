@@ -18,7 +18,7 @@
                                     
                                       <tbody>
                                             <tr v-for="data in datas" :key="data.id">
-                                            <th scope="row">{{ data.user.name }} {{ data.user.last_name }} </th>  
+                                            <th scope="row">{{ data.prisoner.firstname }} {{ data.prisoner.lastname }} </th>  
                                             <td> {{ data.time_in }}</td> 
                                             <td>{{ data.time_out }}</td>  
                                             </tr>
@@ -76,8 +76,9 @@
             setInterval(()=>{
                 axios.get('api/logs')
                 .then(response =>{
+                       console.log(response.data)
                     this.datas = response.data
-                    console.log(response.data)
+                 
                 });
             },1000)
            

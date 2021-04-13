@@ -16,7 +16,7 @@ class LogsResource extends JsonResource
     {
         return [
             'id' =>$this->id,
-            'user' =>$this->employee,
+            'prisoner' =>$this->prisoner,
             'time_in' =>$this->time_in,
             'time_out' =>$this->time_out
         ];

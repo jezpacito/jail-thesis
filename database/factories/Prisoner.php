@@ -21,6 +21,7 @@ $factory->define(\App\Prisoner::class, function (Faker $faker) {
         'alias' =>$faker->name,
         'nationality' =>$faker->colorName,
         'gender' =>$faker->randomElement(['female','male']),
-         'birthdate'=>\Carbon\Carbon::now()->subYears(28)
+         'birthdate'=>\Carbon\Carbon::now()->subYears(28),
+         'rfid_uuid' =>$faker->uuid
     ];
 });
