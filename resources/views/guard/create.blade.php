@@ -8,10 +8,7 @@
             <form action="{{route('guard.store')}}" method="Post">
                 @csrf
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputEmail4">Finger Print Number</label>
-                        <input type="text" class="form-control" id="inputEmail4"  name="finger_print" value="test" disabled>
-                    </div>
+  
                     
                     <div class="form-group col-md-4">
                         <label for="inputEmail4">First Name</label>
