@@ -16,13 +16,23 @@ class CreateJailGuardsTable extends Migration
         Schema::create('jail_guards', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('creator_id');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('middlename');
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('middlename')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->text('address');
-            $table->string('contact_no');
-            $table->string('finger_print')->nullable();
+            $table->text('address')->nullable();
+            $table->string('contact_no')->nullable();
+            // $table->string('finger_print')->nullable();
+              //new db
+            $table->double('serialnumber')->nullable();
+            $table->integer('fingerprint_id')->nullable();
+            $table->integer('fingerprint_select')->nullable();
+            $table->date('date')->nullable();
+            $table->time('timein')->nullable();
+            $table->integer('del_fingerid')->nullable();
+            $table->integer('add_fingerid')->nullable();
+ 
+          
             $table->timestamps();
         });
     }

@@ -14,7 +14,14 @@ class JailGuard extends Model
         'email',
         'address',
         'creator_id',
-        'finger_print'
+        // 'finger_print',
+        'serialnumber',
+        'fingerprint_id',
+        'fingerprint_select',
+        'date',
+        'timein',
+        'del_fingerid',
+        'add_fingerid'
     ];
 
     public function creator(){

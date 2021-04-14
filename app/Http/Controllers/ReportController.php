@@ -15,7 +15,38 @@ class ReportController extends Controller
     public function select(){
         return view('reports.select');
     }
+    //prisoner list report
     public function report(Request $request){
+
+        if($request->has('month')){
+            $month= Carbon::parse($request->month)->month;
+            $year= Carbon::parse($request->month)->year;
+
+            $datas = OffenseData::with('prisoner')
+                ->whereMonth('date_imprisonment',$month)
+                ->whereYear('date_imprisonment',$year)
+                ->get();
+
+            $month_name= Carbon::parse($request->month)->monthName;
+            Artisan::call('view:clear');
+            $pdf = PDF::loadView('reports.print_pdf', compact('datas','month_name'));
+            return $pdf->stream('report.pdf');
+        }else{
+            $year= Carbon::parse($request->year)->year;
+
+            $datas = OffenseData::with('prisoner')
+                ->whereYear('date_imprisonment',$year)
+                ->get();
+
+            $month_name= Carbon::parse($request->year)->monthName;
+            Artisan::call('view:clear');
+            $pdf = PDF::loadView('reports.print_pdf', compact('datas','month_name'));
+            return $pdf->stream('report.pdf');
+        }
+
+    }
+
+    public function report_logs(Request $request){
 
         if($request->has('month')){
             $month= Carbon::parse($request->month)->month;

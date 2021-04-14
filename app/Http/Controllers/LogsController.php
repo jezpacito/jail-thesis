@@ -25,6 +25,7 @@ class LogsController extends Controller
 
     //list of fingerprint logs
     public function logs_fingerprint(){
+        dd('test');
         $logs_p =  FingerPrint::latest()->get() ;
           return response()->json(
               FingerPrintResource::collection($logs_p)

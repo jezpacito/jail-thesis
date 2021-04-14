@@ -153,6 +153,23 @@
                         </div>
                     </li>
                     @endrole
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1"
+                           aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-wrench"></i>
+                            <span>Reports</span>
+                        </a>
+                        <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities"
+                             data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Logs Reports</h6>
+                                <a class="collapse-item" href="#">Monthly Logs</a>
+                                <a class="collapse-item" href="#">Yearly Logs</a>
+            
+                            </div>
+                        </div>
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/rfid-test">
                             <i class="fas fa-fw fa-table"></i>

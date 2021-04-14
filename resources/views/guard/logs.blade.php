@@ -2,5 +2,6 @@
 
 @section('content')
 {{-- <example-component> --}}
+    
     <jailguard-component>
 @endsection

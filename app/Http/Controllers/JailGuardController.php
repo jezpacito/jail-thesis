@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\FingerPrint;
 use App\JailGuard;
 use Illuminate\Http\Request;
 
 class JailGuardController extends Controller
 {
+
+    public function jailGuard_fingerPrint(){
+    }
     /**
      * Display a listing of the resource.
      *
