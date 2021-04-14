@@ -112,7 +112,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Username</th>
-                                        <th>RFID UUID</th>
+                                        {{-- <th>RFID UUID</th> --}}
                                         <th>Status</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -122,7 +122,7 @@
                                     <tr>
                                         <td>{{$user->name}} {{$user->last_name}}</td>
                                         <td>{{$user->username}}</td>
-                                        <td>{{$user->rfid_uuid}}</td>
+                                        {{-- <td>{{$user->rfid_uuid}}</td> --}}
                                         @if($user->status ==1)
                                         <td class="text-primary"><b>Active</b></td>
                                         @else

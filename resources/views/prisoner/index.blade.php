@@ -36,7 +36,7 @@
                                     <th>Civil Status</th>
                                     <th>Residence</th>
                                     <th>Age</th>
-                                    <th>Prison No.</th>
+                                    <th>RFID UUID</th>
                                     <th>Date Detained</th>
                                 </tr>
                                 </thead>
@@ -48,7 +48,7 @@
                                        <td>{{$prison->status}}</td>
                                        <td>{{$prison->permanent_address}}</td>
                                        <td>{{$prison->age}}</td>
-                                       <td>not yet</td>
+                                       <td>{{$prison->rfid_uuid }}</td>
                                        <td>{{$prison->offenseData->date_imprisonment}}</td>
                                        <td>
                                           <div style="display: flex">

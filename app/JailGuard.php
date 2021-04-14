@@ -11,7 +11,7 @@ class JailGuard extends Model
         'lastname',
         'middlename',
         'contact_no',
-        'email',
+        // 'email',
         'address',
         'creator_id',
         // 'finger_print',

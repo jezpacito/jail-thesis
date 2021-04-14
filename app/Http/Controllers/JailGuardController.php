@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\FingerPrint;
 use App\JailGuard;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class JailGuardController extends Controller
 {
 
     public function jailGuard_fingerPrint(){
+        $finger_print = new JailGuard();
+        $finger_print->fingerprint_id = request()->fingerprint_id;
+        $finger_print->save();
+
+        return redirect()->back()->with('sucess','finger print number addded');
     }
     /**
      * Display a listing of the resource.
@@ -29,7 +35,11 @@ class JailGuardController extends Controller
      */
     public function create()
     {
-        return view('guard.create');
+        $fingerprint = JailGuard::where('firstname',null)
+        ->where('lastname',null)->first();
+
+  
+        return view('guard.create',compact('fingerprint'));
     }
 
     /**
@@ -41,9 +51,17 @@ class JailGuardController extends Controller
     public function store(Request $request)
     {
 
-       $guard = new JailGuard($request->all());
-       $guard->creator_id = auth()->user()->id;
-       $guard->save();
+        $guard = JailGuard::findOrfail($request->jailguard_id);
+        $guard->update([
+            'firstname' =>$request->firstname,
+            'lastname' =>$request->lastname,
+            'middlename' =>$request->middlename,
+            'contact_no' =>$request->contact_no,
+            'address' =>$request->address,
+            'creator_id' =>auth()->user()->id,
+            // 'finger_print',
+        ]);
+     
 
        return redirect()->route('guard.index')->withSuccess('Added successfully.');
     }

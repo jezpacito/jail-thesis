@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
             'password' =>'password',
            'username' =>'adminUser',
            'status' =>1,
-           'rfid_uuid' =>45455454
+        //    'rfid_uuid' =>45455454
             ]);
        $user->assignRole('admin');
 
@@ -30,7 +30,7 @@ class UserTableSeeder extends Seeder
             'password' =>'password',
             'username' =>'staffUser',
             'status' =>1,
-            'rfid_uuid' =>12345678
+            // 'rfid_uuid' =>12345678
 
         ]);
         $user->assignRole('staff');

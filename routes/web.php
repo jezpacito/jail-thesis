@@ -73,8 +73,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/temp',function (){
         return view('prisoner.insert');
     });
-
     
+    //add finger print number
+    Route::post('/add/fingerprint','JailGuardController@jailGuard_fingerPrint')->name('add.fingerprint');
+
+    //vue route
     Route::get('/logs',function(){
         return view('prisoner.logs');
     });

@@ -15,11 +15,11 @@ class CreateJailGuardsTable extends Migration
     {
         Schema::create('jail_guards', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('creator_id');
+            $table->unsignedBigInteger('creator_id')->nullable();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
             $table->string('middlename')->nullable();
-            $table->string('email')->unique()->nullable();
+            // $table->string('email')->unique()->nullable();
             $table->text('address')->nullable();
             $table->string('contact_no')->nullable();
             // $table->string('finger_print')->nullable();

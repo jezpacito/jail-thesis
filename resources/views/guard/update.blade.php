@@ -28,10 +28,7 @@
                         <label for="inputEmail4">Contact Number</label>
                         <input  type="number" class="form-control" id="inputEmail4" name="contact_no" value="{{$guard->contact_no}}">
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">Email</label>
-                        <input  type="email" class="form-control" id="inputEmail4" name="email" value="{{$guard->email}}">
-                    </div>
+                 
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Address</label>
                         <input  type="text" class="form-control" id="inputEmail4" name="address" value="{{$guard->address}}">

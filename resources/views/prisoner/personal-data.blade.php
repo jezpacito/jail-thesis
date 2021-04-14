@@ -6,8 +6,8 @@
         <div class="form-row">
           
             <div class="col-md-4 mb-3">
-                <label for="validationCustom01">First name</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="RFID UUID"  name="  rfid_uuid" required>
+                <label for="validationCustom01">RFID UUID</label>
+                <input type="number" class="form-control" id="validationCustom01" placeholder="RFID UUID"  name="  rfid_uuid" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
