@@ -13,7 +13,6 @@ class JailGuardController extends Controller
     public function update_status(JailGuard $guard){
 
         if($guard->isDischarge ==true){
-            dd('ss');
             $guard->update(['isDischarge'=>false]);
         }
         else{
