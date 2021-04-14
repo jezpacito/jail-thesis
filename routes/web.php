@@ -38,6 +38,9 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/status/{staff}','UserController@update_status');
 
+    //update jail guard status
+    Route::put('/status/guard/{staff}','JailGuardController@update_status');
+
     Route::put('/staff/update/{staff}','UserController@update');
 
 

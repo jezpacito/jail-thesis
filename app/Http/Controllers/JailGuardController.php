@@ -10,6 +10,19 @@ use RealRashid\SweetAlert\Facades\Alert;
 class JailGuardController extends Controller
 {
 
+    public function update_status(JailGuard $guard){
+
+        if($guard->isDischarge ==true){
+            dd('ss');
+            $guard->update(['isDischarge'=>false]);
+        }
+        else{
+            $guard->update(['isDischarge'=>true]);
+
+        }
+        return redirect()->back()->with('success', 'Status Updated!');
+    }
+
     public function jailGuard_fingerPrint(){
         $finger_print = new JailGuard();
         $finger_print->fingerprint_id = request()->fingerprint_id;

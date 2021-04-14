@@ -30,9 +30,8 @@ class CreateJailGuardsTable extends Migration
             $table->date('date')->nullable();
             $table->time('timein')->nullable();
             $table->integer('del_fingerid')->nullable();
-            $table->integer('add_fingerid')->nullable();
- 
-          
+            $table->integer('add_fingerid')->nullable();      
+            $table->boolean('isDischarge')->default(0);    
             $table->timestamps();
         });
     }

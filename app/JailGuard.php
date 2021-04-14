@@ -21,7 +21,8 @@ class JailGuard extends Model
         'date',
         'timein',
         'del_fingerid',
-        'add_fingerid'
+        'add_fingerid',
+        'isDischarge'
     ];
 
     public function creator(){

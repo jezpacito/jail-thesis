@@ -30,6 +30,7 @@
                                         <th>Email</th>
                                         <th>Residence</th>
                                         <th>Contact No.</th>
+                                        <th>Status</th>
                                         <th>Added by</th>
                                     </tr>
                                     </thead>
@@ -41,6 +42,7 @@
                                             <td>{{$guard->email}}</td>
                                             <td>{{$guard->address}}</td>
                                             <td>{{$guard->contact_no}}</td>
+                                            <td>{{$guard->isDischarge}}</td>
                                             <td>{{$guard->creator->name}} {{$guard->creator->last_name}}</td>
                                             <td>
                                                 <div style="display: flex">
@@ -48,6 +50,16 @@
                                                         <span class="material-icons">preview</span>
                                                     </a>
                                                 </div>
+                                                {{-- action="/status/{{$user->id}}"  --}}
+                                                <form method="POST" action="/status/guard/{{$guard->id}}"autocomplete="off">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <input type="hidden" name="_method" value="PUT">
+                                                    <button  class="border-0 btn bg-white" type="submit">
+                                                     <span class="material-icons">
+                                                         settings_applications
+                                                    </span>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
