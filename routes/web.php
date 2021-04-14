@@ -78,6 +78,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/logs',function(){
         return view('prisoner.logs');
     });
+    Route::get('/fingerprint',function(){
+        return view('guard.logs');
+    });
+
     //rfid tap
     Route::post('/contact-form','LogsController@attendance');
     Route::get('rfid-test', function (){

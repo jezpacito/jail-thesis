@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/logs','LogsController@logs');
+Route::get('logs','LogsController@logs');
+Route::get('ssss',function(){
+    return 'sssasasas';
+});
+Route::get('/fingerprint/list','LogsController@logs_fingerprint');
+
+Route::get('/jailguard/fingerprint/{fingerprint}','LogsController@fingerprint_in');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

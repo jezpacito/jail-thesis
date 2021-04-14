@@ -22,6 +22,7 @@ class CreateJailGuardsTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->text('address');
             $table->string('contact_no');
+            $table->string('finger_print')->nullable();
             $table->timestamps();
         });
     }

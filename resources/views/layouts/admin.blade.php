@@ -147,6 +147,11 @@
                 <i class="fas fa-fw fa-table"></i>
                 <span>RFID LOGS</span></a>
         </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/fingerprint">
+                <i class="fas fa-fw fa-table"></i>
+                <span>FINGER PRINT LOGS</span></a>
+        </li>
 
 
 

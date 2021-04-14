@@ -13,10 +13,15 @@ class JailGuard extends Model
         'contact_no',
         'email',
         'address',
-        'creator_id'
+        'creator_id',
+        'finger_print'
     ];
 
     public function creator(){
         return $this->belongsTo(User::class);
+    }
+
+    public function fingerPrint(){
+        return $this->hasOne(FingerPrint::class);
     }
 }
