@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class FingerPrint extends Model
 {
     protected $fillable = [
-        // 'jail_guard_id',
-        // 'date_scan'
+        'jail_guard_id',
         'finger_print_uuid'
     ];
 

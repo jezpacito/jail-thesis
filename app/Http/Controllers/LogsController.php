@@ -34,18 +34,20 @@ class LogsController extends Controller
 
     //register finger print logs through api
     public function fingerprint_in($fingerprint){
-        $guard = JailGuard::where('finger_print',$fingerprint)->first();
+        $guard = JailGuard::where('fingerprint_id',$fingerprint)->first();
         if($guard ===null){
-            return response()->json(
-                'that finger print does not exist!'
-            );
+           JailGuard::create([
+               'fingerprint_id' =>$fingerprint
+           ]);
+        }else{
+            $logs_jail= FingerPrint::create([
+                'jail_guard_id' =>$guard->id,
+                'finger_print_uuid' =>$fingerprint
+            ]);
+    
         }
         
-        $logs_jail= FingerPrint::create([
-            'jail_guard_id' =>$guard->id,
-            'date_scan' =>Carbon::now()
-        ]);
-
+     
         return  $logs_jail;
     }
 
