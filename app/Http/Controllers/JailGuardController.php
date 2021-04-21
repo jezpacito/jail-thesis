@@ -12,11 +12,11 @@ class JailGuardController extends Controller
 
     public function update_status(JailGuard $guard){
 
-        if($guard->isDischarge ==true){
-            $guard->update(['isDischarge'=>false]);
+        if($guard->isDischarge ==false){
+            $guard->update(['isDischarge'=>true]);
         }
         else{
-            $guard->update(['isDischarge'=>true]);
+            $guard->update(['isDischarge'=>false]);
 
         }
         return redirect()->back()->with('success', 'Status Updated!');
