@@ -11,6 +11,6 @@ class JailGuardLog extends Model
         'fingerprint_id',
         'checkindate',
         'timein',
-        'timeout'
+        'timeout',
     ];
 }

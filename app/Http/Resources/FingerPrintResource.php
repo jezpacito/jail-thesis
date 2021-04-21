@@ -15,9 +15,11 @@ class FingerPrintResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' =>$this->id,
-            'jail_guard' =>$this->jail_guard,
-            'date_scan' =>$this->date_scan
+            'serialnumber',
+            'fingerprint_id',
+            'checkindate',
+            'timein',
+            'timeout'
         ];
     }
 }

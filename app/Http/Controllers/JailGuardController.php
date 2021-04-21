@@ -27,9 +27,6 @@ class JailGuardController extends Controller
         $finger_print->fingerprint_id = request()->fingerprint_id;
         $finger_print->save();
 
-        $finger_print->update([
-            'add_fingerid' => $finger_print->id
-        ]);
         return redirect()->back()->with('sucess','finger print number addded');
     }
     /**
@@ -74,6 +71,7 @@ class JailGuardController extends Controller
             'contact_no' =>$request->contact_no,
             'address' =>$request->address,
             'creator_id' =>auth()->user()->id,
+            'add_fingerid' =>false
             // 'finger_print',
         ]);
      

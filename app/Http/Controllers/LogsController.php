@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Resources\LogsResource;
 use App\JailGuard;
+use App\JailGuardLog;
 use App\Prisoner;
 
 class LogsController extends Controller
@@ -25,8 +26,8 @@ class LogsController extends Controller
 
     //list of fingerprint logs
     public function logs_fingerprint(){
-        dd('test');
-        $logs_p =  FingerPrint::latest()->get() ;
+
+        $logs_p =  JailGuardLog::latest()->get() ;
           return response()->json(
               FingerPrintResource::collection($logs_p)
           );

@@ -38035,14 +38035,12 @@ var render = function() {
                   return _c("tr", { key: jail_data.id }, [
                     _c("th", { attrs: { scope: "row" } }, [
                       _vm._v(
-                        _vm._s(jail_data.jail_guard.firstname) +
+                        _vm._s(jail_data.fingerprint_id) +
                           " " +
-                          _vm._s(jail_data.jail_guard.lastname) +
+                          _vm._s(jail_data.checkindate) +
                           " "
                       )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(" " + _vm._s(jail_data.date_scan))])
+                    ])
                   ])
                 }),
                 0

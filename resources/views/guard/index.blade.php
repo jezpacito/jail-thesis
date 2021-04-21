@@ -38,6 +38,8 @@
 
                                     @foreach($guards as $guard)
                                         <tr>
+                                            @if($guard->creator !=null)
+
                                             <td>{{$guard->firstname}} {{$guard->middlename}} {{$guard->lastname}}</td>
                                             <td>{{$guard->email}}</td>
                                             <td>{{$guard->address}}</td>
@@ -66,7 +68,11 @@
                                                     </button>
                                                 </form>
                                             </td>
+                                            @else
+                                            <span class="text-danger"> no jail guard register</span>
+                                            @endif
                                         </tr>
+                                      
                                     @endforeach
 
                                     </tbody>

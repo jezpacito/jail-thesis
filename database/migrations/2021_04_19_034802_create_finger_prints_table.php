@@ -16,7 +16,7 @@ class CreateFingerPrintsTable extends Migration
         Schema::create('finger_prints', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('jail_guard_id');
-            $table->string('finger_print_uuid');
+            $table->boolean('finger_print_uuid')->default(1);
             $table->timestamps();
         });
     }
