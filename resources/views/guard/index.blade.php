@@ -44,10 +44,10 @@
                                             <td>{{$guard->email}}</td>
                                             <td>{{$guard->address}}</td>
                                             <td>{{$guard->contact_no}}</td>
-                                            @if($guard->isDischarge ===true)
-                                                <td>Active</td>
+                                            @if($guard->isDischarge ===false)
+                                                <td>Discharged</td>
                                                 @else
-                                                <td><span class="text-danger"> Discharged</span></td>
+                                                <td><span class="text-danger">Active </span></td>
                                             @endif
                                           
                                             <td>{{$guard->creator->name}} {{$guard->creator->last_name}}</td>
