@@ -38034,13 +38034,10 @@ var render = function() {
                 _vm._l(_vm.jail_datas, function(jail_data) {
                   return _c("tr", { key: jail_data.id }, [
                     _c("th", { attrs: { scope: "row" } }, [
-                      _vm._v(
-                        _vm._s(jail_data.fingerprint_id) +
-                          " " +
-                          _vm._s(jail_data.checkindate) +
-                          " "
-                      )
-                    ])
+                      _vm._v(_vm._s(jail_data.fingerprint_id) + "  ")
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(" " + _vm._s(jail_data.checkindate))])
                   ])
                 }),
                 0

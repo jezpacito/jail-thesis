@@ -15,11 +15,12 @@ class FingerPrintResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'serialnumber',
-            'fingerprint_id',
-            'checkindate',
-            'timein',
-            'timeout'
+            'id' =>$this->id,
+            'serialnumber'=>$this->serialnumber,
+            'fingerprint_id' =>$this->fingerprint_id,
+            'checkindate'=>$this->checkindate,
+            // 'timein',
+            // 'timeout'
         ];
     }
 }

@@ -17,8 +17,8 @@
                                     
                                       <tbody>
                                             <tr v-for="jail_data in jail_datas" :key="jail_data.id">
-                                            <th scope="row">{{ jail_data.fingerprint_id }} {{ jail_data.checkindate }} </th>  
-                                            <!-- <td> {{ jail_data.date_scan }}</td>  -->
+                                            <th scope="row">{{ jail_data.fingerprint_id }}  </th>  
+                                            <td> {{ jail_data.checkindate }}</td> 
                                             </tr>
                                     </tbody>
                                 </table>
