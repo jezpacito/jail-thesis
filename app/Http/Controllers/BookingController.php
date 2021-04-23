@@ -26,6 +26,7 @@ class BookingController extends Controller
                 'cottage_id' =>request()->cottage_id
             ]);
             if($time_type == "AM" && $booking->cottage->isDayAvailable ==true){
+              
                 $booking->cottage->update([
                     'isDayAvailable' =>false
                 ]);
@@ -34,14 +35,10 @@ class BookingController extends Controller
                     'isNightAvailable' =>false
                 ]);
             }
-            else{
-                $booking->cottage->update([
-                    'isNightAvailable' =>false
-                ]);
-            }
+           
+            
          
         });
-      
       
 
         return redirect()->back()->with('success','BOOKED!');
