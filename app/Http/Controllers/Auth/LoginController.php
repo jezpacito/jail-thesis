@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -56,10 +57,10 @@ class LoginController extends Controller
             ? new JsonResponse([], 204)
             : redirect('/login');
     }
-    public function username()
-    {
-        return 'username';
-    }
+    // public function username()
+    // {
+    //     return 'username';
+    // }
     protected function authenticated(Request $request, $user)
     {
         if($user->status==false) {
@@ -67,4 +68,15 @@ class LoginController extends Controller
             abort(403);
         }
     }
+
+    public function redirectTo() {
+
+        $user = User::find(auth()->user()->id);
+        if($user->hasRole('guest')){
+            return '/';
+        }else{
+            return '/home';
+        }
+       
+      }
 }

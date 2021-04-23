@@ -58,7 +58,7 @@
                         <div class="sidebar-brand-icon rotate-n-15">
                             <i class="fas fa-book"></i>
                         </div>
-                        <div class="sidebar-brand-text mx-1"> <sup>Jail Management & Monitoring System</sup></div>
+                        <div class="sidebar-brand-text mx-1"> <sup>Reservation System</sup></div>
                     </a>
             
                     <!-- Divider -->
@@ -110,29 +110,10 @@
                                 <a class="collapse-item" href="/prisoner/create">Add Prisoner</a>
                                 <a class="collapse-item" href="/prisoner">All Prisoners</a>
                                <a class="collapse-item" href="#">Prisoner's Logs</a>
-            {{--                    <a class="collapse-item" href="#">Current Prisoners</a>--}}
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                           aria-expanded="true" aria-controls="collapseUtilities">
-                            <i class="fas fa-fw fa-wrench"></i>
-                            <span>Jail Guards</span>
-                        </a>
-                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                             data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Jail Guards Information:</h6>
-                                <a class="collapse-item" href="/guard/create">Register Jail Guard</a>
-                                <a class="collapse-item" href="/guard">List of Jail Guards</a>
-            {{--                    <a class="collapse-item" href="#">#</a>--}}
-            {{--                    <a class="collapse-item" href="utilities-border.html">#</a>--}}
-            {{--                    <a class="collapse-item" href="#">#</a>--}}
-            
-                            </div>
-                        </div>
-                    </li>
+                  
             
             
                     @role('admin')
@@ -170,7 +151,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item active">
+                    {{-- <li class="nav-item active">
                         <a class="nav-link" href="/rfid-test">
                             <i class="fas fa-fw fa-table"></i>
                             <span>SCAN RFID</span></a>
@@ -185,7 +166,7 @@
                             <i class="fas fa-fw fa-table"></i>
                             <span>FINGER PRINT LOGS</span></a>
                     </li>
-            
+             --}}
             
                     <!-- Divider -->
                     <hr class="sidebar-divider d-none d-md-block">

@@ -72,7 +72,7 @@ class RegisterController extends Controller
            $staff= User::create([
                 'name' => $data['name'],
                 'last_name' => $data['last_name'],
-//                'email' => $data['email'],
+               'email' => $data['email'],
                 'password' => $data['password'],
                'username' => $data['username'],
                'status' =>1
@@ -85,7 +85,7 @@ class RegisterController extends Controller
           $admin=  User::create([
             'name' => $data['name'],
             'last_name' => $data['last_name'],
-//            'email' => $data['email'],
+           'email' => $data['email'],
             'password' => $data['password'],
               'username' => $data['username'],
               'status' =>1

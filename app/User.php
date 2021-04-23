@@ -19,6 +19,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'last_name', 'password','username',
         'status',
+        'contact_no',
+    'email'
         // 'rfid_uuid'
 //        , 'email'
     ];

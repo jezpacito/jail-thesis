@@ -13,5 +13,6 @@ class RoleTableSeeder extends Seeder
     {
         \Spatie\Permission\Models\Role::create(['name' => 'admin']);
         \Spatie\Permission\Models\Role::create(['name' => 'staff']);
+        \Spatie\Permission\Models\Role::create(['name' => 'guest']);
     }
 }

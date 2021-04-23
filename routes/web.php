@@ -19,11 +19,16 @@ Route::view('/stepss','step-test');
 Route::get('/', function () {
     $cottages = Cottage::where('isVacant',true)->latest()->get();
     return view('homepage.home',compact('cottages'));
-});
+})->name('/');
+
+Route::get('registration/guest','GuestController@guest');
+Route::post('/register/guest','GuestController@register')->name('register.guest');
 
 \Illuminate\Support\Facades\Auth::routes();
 
 Route::middleware('auth')->group(function () {
+    Route::post('/booking','BookingController@book')->name('booking');
+
     Route::resource('prisoner','PrisonerController');
 
     Route::resource('guard','JailGuardController');
