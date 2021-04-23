@@ -31,6 +31,11 @@ Route::post('/register/guest','GuestController@register')->name('register.guest'
 \Illuminate\Support\Facades\Auth::routes();
 
 Route::middleware('auth')->group(function () {
+    //payment method
+    Route::get('checkout','CheckoutController@checkout')->name('checkout');
+    Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');
+    //end payment
+
     Route::post('/booking','BookingController@book')->name('booking');
 
     Route::resource('prisoner','PrisonerController');

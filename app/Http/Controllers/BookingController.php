@@ -36,7 +36,7 @@ class BookingController extends Controller
         });
       
 
-        return redirect()->back()->with('success','BOOKED!');
+        return redirect()->route('checkout');
 
 
     }
