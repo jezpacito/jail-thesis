@@ -17,7 +17,11 @@ class CreateBookingsTable extends Migration
             $table->id();
             $table->date('booking_date');
             $table->time('booking_time');
+            $table->string('time_type');
+            $table->string('number_persion');
             $table->unsignedBigInteger('guest_id');
+            $table->unsignedBigInteger('cottage_id');
+            $table->timestamps();
         });
     }
 

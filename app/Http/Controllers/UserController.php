@@ -9,7 +9,6 @@ class UserController extends Controller
 {
     public function staff(){
         $users = \App\User::role('staff')->get();
-
         return view('staff.index',compact('users'));
     }
 
