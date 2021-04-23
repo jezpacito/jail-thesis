@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
-    public function book(Request $request){
-
-      
+    public function book(Request $request){      
         $time = Carbon::parse($request->booking)->toTimeString();
         $date = Carbon::parse($request->booking)->toDateString();
         $time_type = date('A', strtotime($request->booking));
@@ -35,9 +33,6 @@ class BookingController extends Controller
                     'isNightAvailable' =>false
                 ]);
             }
-           
-            
-         
         });
       
 
