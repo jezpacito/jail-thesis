@@ -1,5 +1,6 @@
 <?php
 
+use App\Cottage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,8 @@ Route::view('/stepss','step-test');
 
 
 Route::get('/', function () {
-    return view('auth.login');
+    $cottages = Cottage::where('isVacant',true)->latest()->get();
+    return view('homepage.home',compact('cottages'));
 });
 
 \Illuminate\Support\Facades\Auth::routes();
