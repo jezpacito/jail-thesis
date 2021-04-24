@@ -12,6 +12,8 @@ $factory->define(Cottage::class, function (Faker $faker) {
         'nightRate' =>850,
         'dayRate' =>650,
         'isVacant' =>true,
-        'category_id' =>$faker->numberBetween(2,1)
+        'category_id' =>$faker->numberBetween(2,1),
+        'isNightAvailable' =>true,
+        'isDayAvailable' =>true
     ];
 });

@@ -9,7 +9,7 @@
                     <div class="row">
 {{--                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>--}}
                         <div class="col-lg-6 text-center pt-4 pl-5">
-                            <img src="{{asset('/img/logo.png')}}" style="height: 50%;">
+                            <img src="{{asset('/img/logo.png')}}" >
                         </div>
 
                         <div class="col-lg-6">
@@ -45,6 +45,10 @@
                                             <label class="custom-control-label" for="remember">{{ __('Remember Me') }}</label>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                            <a href="/registration/guest" class="link-dark">Create an Account</a>
+                                    </div>
+
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-user btn-block">

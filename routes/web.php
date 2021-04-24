@@ -13,20 +13,29 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/stepss','step-test');
+// Route::view('/stepss','step-test');
 
 
 Route::get('/', function () {
-    $cottages = Cottage::where('isVacant',true)->latest()->get();
+    $cottages = Cottage::where('isNightAvailable',true)
+    ->orWhere('isDayAvailable',true)
+    ->latest()->get();
     return view('homepage.home',compact('cottages'));
 })->name('/');
 
 Route::get('registration/guest','GuestController@guest');
 Route::post('/register/guest','GuestController@register')->name('register.guest');
 
+
+
 \Illuminate\Support\Facades\Auth::routes();
 
 Route::middleware('auth')->group(function () {
+    //payment method
+    Route::get('checkout','CheckoutController@checkout')->name('checkout');
+    Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');
+    //end payment
+
     Route::post('/booking','BookingController@book')->name('booking');
 
     Route::resource('prisoner','PrisonerController');

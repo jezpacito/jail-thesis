@@ -18,6 +18,8 @@ class CreateCottagesTable extends Migration
             $table->string('name');
             $table->integer('nightRate');
             $table->integer('dayRate');
+            $table->double('isNightAvailable')->default(true);
+            $table->double('isDayAvailable')->default(true);
             $table->boolean('isVacant')->default(true);
             $table->unsignedBigInteger('category_id');
             $table->timestamps();

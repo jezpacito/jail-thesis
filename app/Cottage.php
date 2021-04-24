@@ -11,7 +11,9 @@ class Cottage extends Model
         'nightRate',
         'dayRate',
         'isVacant',
-        'category_id'
+        'category_id',
+        'isNightAvailable',
+        'isDayAvailable'
     ];
 
     public function category(){
