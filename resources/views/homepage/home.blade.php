@@ -10,7 +10,7 @@
 <!-- Navbar (sit on top) -->
 @include('sweetalert::alert')
 <div class="w3-top">
-  <div class="w3-bar w3-blue w3-wide w3-padding w3-card">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
     <img src="" class="w3-bar-item w3-button"><b>Reservation System</b>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
@@ -65,24 +65,35 @@
         <h3>{{ $cottage->name }}</h3>
         <p>{{ $cottage->description }}</p>
         <p>Night Rate: {{ $cottage->nightRate }} 
-          | Status: @if($cottage->isNightAvailable ==true)
-           <b> available</b>
+          |  @if($cottage->isNightAvailable ==true)
+          
+            <form method="Get" action="/checkout/{{ $cottage->id }}" >
+              {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+              <input name="rate" value="night" type="hidden" value="secret">
+              <button class="btn-primary btn-sm" type="submit"> Book Now for 850 </button>
+            </form>
+           
           @else
           <b> not available</b>
           @endif
         </p>
-          <p>Day Rate: {{ $cottage->dayRate }} Status: @if($cottage->isDayAvailable ==true)
-          <b> available</b>
+          <p>Day Rate: {{ $cottage->dayRate }} @if($cottage->isDayAvailable ==true)
+        
+            <form method="Get" action="/checkout/{{ $cottage->id }}" >
+            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+            <input name="rate" value="day" type="hidden" value="secret">
+            <button class="btn-primary btn-sm" type="submit"> Book Now for 650</button>
+          </form>
         @else
          <b> not available</b>
         @endif
         </p>
         @auth
         
-  
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{ $cottage->id }}">
+    
+        {{-- <a  href="checkout/{{ $cottage->id }}/night" name="sswe"  value="sss" class="btn btn-primary" >
           Book now
-        </button>
+         </a> --}}
         
         <!-- Modal -->
         <div class="modal fade" id="exampleModal-{{ $cottage->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -121,9 +132,12 @@
             </div>
           </div>
         </div>  
-         @else
-         <a class="btn-primary btn-sm btn-block w3-display-container" href="/login" role="button"><h5>Book Now</h5></a>
+       
          @endauth
+       
+         @if (!Auth::check()) 
+          <a class="btn-primary btn-sm btn-block w3-display-container" href="/login" role="button"><h5>Book Now</h5></a>
+          @endif
       </div>
     </div>
     @endforeach
@@ -147,6 +161,7 @@
   
 <!-- Image of location/map -->
 <div class="w3-container">
+  <img src="/w3images/map.jpg" class="w3-image" style="width:100%">
   <div class="mapouter"><div class="gmap_canvas">
     {{-- <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> --}}
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3968.743570950557!2d124.84105691444827!3d5.891605131821436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f7b5f518bf307d%3A0xd60bf84bc9a26774!2sIML%20Ecopark!5e0!3m2!1sfil!2sph!4v1619191608493!5m2!1sfil!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
