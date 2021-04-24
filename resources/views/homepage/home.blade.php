@@ -10,7 +10,7 @@
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="w3-bar-item w3-button"><b>Reservation System</b></a>
+    <img src="" class="w3-bar-item w3-button"><b>Reservation System</b>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
         @if (Auth::check()) 
@@ -127,7 +127,7 @@
 <!-- Image of location/map -->
 <div class="w3-container">
   <img src="/w3images/map.jpg" class="w3-image" style="width:100%">
-  <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.online-timer.net"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">adding google maps to wordpress</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
+  <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://www.google.com/maps/place/IML+Ecopark/@5.8915998,124.8410623,17z/data=!3m1!4b1!4m5!3m4!1s0x32f7b5f518bf307d:0xd60bf84bc9a26774!8m2!3d5.8915998!4d124.8432456?hl=en-US" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.online-timer.net"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">adding google maps to wordpress</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
 </div>
 
 <!-- End page content -->
