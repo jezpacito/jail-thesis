@@ -61,9 +61,10 @@
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <img src="/img/cottage.jpg" alt="House" style="width:99%">
-        <h3>{{ $cottage->id }}</h3>
+        {{-- <h3>{{ $cottage->id }}</h3> --}}
         <h3>{{ $cottage->name }}</h3>
         <p>{{ $cottage->description }}</p>
+        @auth
         <p>Night Rate: {{ $cottage->nightRate }} 
           |  @if($cottage->isNightAvailable ==true)
           
@@ -87,52 +88,8 @@
         @else
          <b> not available</b>
         @endif
-        </p>
-        @auth
-        
-    
-        {{-- <a  href="checkout/{{ $cottage->id }}/night" name="sswe"  value="sss" class="btn btn-primary" >
-          Book now
-         </a> --}}
-        
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal-{{ $cottage->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-              
-                <form method="POST" action="{{ url('/booking') }}" class="user">
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                  <div class="form-group"> 
-                    <input type="number" class="form-control" id="birthdaytime" name="number_persion">
-                  </div>
-
+        </p>  
   
-                    <label> Day Date Time Picker</label>
-                      <div class="form-group"> 
-                        <input type="datetime-local" class="form-control" id="birthdaytime" name="booking">
-                      </div>
-                 
-                  
-                    <input name="cottage_id" value="{{ $cottage->id }}" type="hidden" value="secret">
-                  <div>
-                    <button class="btn-primary btn-sm" type="submit"> Proceed </button>
-                  </div>
-                </form>
-                
-              </div>
-              
-            </div>
-          </div>
-        </div>  
-       
          @endauth
        
          @if (!Auth::check()) 
