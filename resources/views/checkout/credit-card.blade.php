@@ -17,9 +17,7 @@
     <div class="container" style="margin-top:10%;margin-bottom:10%">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="">
-                    <p>You will be charged rs 100</p>
-                </div>
+             
                 <div class="card">
                     <form action="{{route('checkout.credit-card')}}"  method="post" id="payment-form">
                         @csrf                    
