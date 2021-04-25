@@ -18,14 +18,17 @@ class CheckoutController extends Controller
             if($request->rate == 'night'){
                 $amount = $cottage->nightRate;
                 $pay = $cottage->nightRate;
-                $amount *= $cottage->nightRate;
+                $amount *= 100;
                 $amount = (int) $amount;
+
+                
                 
             }
             if($request->rate == 'day'){
                 $amount = $cottage->dayRate;
                 $pay = $cottage->dayRate;
-                $amount *= $cottage->dayRate;
+                $amount *= 100;
+                //times cent
                 $amount = (int) $amount;
             
             }
