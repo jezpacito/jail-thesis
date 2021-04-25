@@ -9,7 +9,7 @@
                     <div class="row">
 {{--                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>--}}
                         <div class="col-lg-6 text-center pt-4 pl-5">
-                            <img src="{{asset('/img/bgmp-logo.png')}}">
+                            <img src="{{asset('/img/logo.png')}}" >
                         </div>
 
                         <div class="col-lg-6">

@@ -17,10 +17,28 @@
     <div class="container" style="margin-top:10%;margin-bottom:10%">
         <div class="row justify-content-center">
             <div class="col-md-12">
-             
-                <div class="card">
+          
+                <div class="">
+                    <p>IML ECO RESORT PAYMENT FORM</p>
+                </div>
+                <div class="card p-2 bg-light">
                     <form action="{{route('checkout.credit-card')}}"  method="post" id="payment-form">
-                        @csrf                    
+                        @csrf          
+                        <div class="form-group"> 
+                            <label>Enter Number of Person</label>
+                            <input type="number" class="form-control" id="birthdaytime" name="number_persion">
+                          </div>
+        
+                            <label> Date Time Picker</label>
+                              <div class="form-group"> 
+                                {{-- <input type="datetime-local" class="form-control" id="birthdaytime" name="booking"> --}}
+                                <input type="date" class="form-control" id="birthdaytime" name="booking">
+
+                              </div>
+                         
+                              <input name="rate" value="{{ $pay }}" type="hidden" value="secret">
+                            <input name="cottage_id" value="{{ $cottage->id }}" type="hidden" value="secret">
+                                
                         <div class="form-group">
                             <div class="card-header">
                                 <label for="card-element">

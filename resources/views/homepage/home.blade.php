@@ -11,7 +11,7 @@
 @include('sweetalert::alert')
 <div class="w3-top">
   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-    <a href="#home" class="w3-bar-item w3-button"><b>Reservation System</b></a>
+    <img src="" class="w3-bar-item w3-button"><b>Reservation System</b>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
         @if (Auth::check()) 
@@ -65,24 +65,35 @@
         <h3>{{ $cottage->name }}</h3>
         <p>{{ $cottage->description }}</p>
         <p>Night Rate: {{ $cottage->nightRate }} 
-          | Status: @if($cottage->isNightAvailable ==true)
-           <b> available</b>
+          |  @if($cottage->isNightAvailable ==true)
+          
+            <form method="Get" action="/checkout/{{ $cottage->id }}" >
+              {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+              <input name="rate" value="night" type="hidden" value="secret">
+              <button class="btn-primary btn-sm" type="submit"> Book Now for 850 </button>
+            </form>
+           
           @else
           <b> not available</b>
           @endif
         </p>
-          <p>Day Rate: {{ $cottage->dayRate }} Status: @if($cottage->isDayAvailable ==true)
-          <b> available</b>
+          <p>Day Rate: {{ $cottage->dayRate }} @if($cottage->isDayAvailable ==true)
+        
+            <form method="Get" action="/checkout/{{ $cottage->id }}" >
+            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+            <input name="rate" value="day" type="hidden" value="secret">
+            <button class="btn-primary btn-sm" type="submit"> Book Now for 650</button>
+          </form>
         @else
          <b> not available</b>
         @endif
         </p>
         @auth
         
-  
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{ $cottage->id }}">
+    
+        {{-- <a  href="checkout/{{ $cottage->id }}/night" name="sswe"  value="sss" class="btn btn-primary" >
           Book now
-        </button>
+         </a> --}}
         
         <!-- Modal -->
         <div class="modal fade" id="exampleModal-{{ $cottage->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -121,9 +132,12 @@
             </div>
           </div>
         </div>  
-         @else
-         <a class="btn-primary btn-sm btn-block w3-display-container" href="/login" role="button"><h5>Book Now</h5></a>
+       
          @endauth
+       
+         @if (!Auth::check()) 
+          <a class="btn-primary btn-sm btn-block w3-display-container" href="/login" role="button"><h5>Book Now</h5></a>
+          @endif
       </div>
     </div>
     @endforeach

@@ -32,7 +32,7 @@ Route::post('/register/guest','GuestController@register')->name('register.guest'
 
 Route::middleware('auth')->group(function () {
     //payment method
-    Route::get('checkout','CheckoutController@checkout')->name('checkout');
+    Route::get('checkout/{cottage}','CheckoutController@checkout')->name('checkout');
     Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');
     //end payment
 
