@@ -21,8 +21,7 @@ class CheckoutController extends Controller
                 $amount *= 100;
                 $amount = (int) $amount;
 
-                
-                
+               
             }
             if($request->rate == 'day'){
                 $amount = $cottage->dayRate;
@@ -58,14 +57,13 @@ class CheckoutController extends Controller
 
     public function afterPayment(Request $request)
     {
-       $cottage = Cottage::find($request->cottage_id);
 
           //booking code
           $time = Carbon::parse($request->booking)->toTimeString();
           $date = Carbon::parse($request->booking)->toDateString();
           $time_type = date('A', strtotime($request->booking));
   
-          DB::transaction(function () use ($time,$request,$time_type,$date,$cottage){
+          DB::transaction(function () use ($time,$request,$time_type,$date){
               $booking = Booking::create([
                   'number_persion' =>$request->number_persion,
                   'booking_date' =>$date,
@@ -74,15 +72,25 @@ class CheckoutController extends Controller
                   'time_type' =>$time_type,
                   'cottage_id' =>request()->cottage_id
               ]);
+              $payment = Payment::create([
+                'guest_id' =>auth()->user()->id,
+                'amount_paid' =>$request->rate
+              ]);
+
+              $cottage = Cottage::where('id',$request->cottage_id)->first();
+
+              
               if($request->rate ==$cottage->dayRate){
-           
-                 $booking->cottage->update([
-                    'isDayAvailable' =>false
-                ]);
-              }if($request->rate ==$cottage->dayRate){
-                  $booking->cottage->update([
-                      'isNightAvailable' =>false
-                  ]);
+             
+                $data= $cottage->update([
+                     'isDayAvailable' =>0
+                 ]);
+              }if($request->rate ==$cottage->nightRate){
+                // dd('night');
+               $cottage->update([
+                'isNightAvailable' =>0
+            ]);
+                
               }
             
           });

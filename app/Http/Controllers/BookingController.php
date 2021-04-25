@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Cottage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,12 +24,15 @@ class BookingController extends Controller
                 'time_type' =>$time_type,
                 'cottage_id' =>request()->cottage_id
             ]);
+            $cottage = Cottage::find($request->cottage_id);
             if($time_type == "AM" && $booking->cottage->isDayAvailable ==true){
               
+                dd($cottage->update(['isDayAvailable' =>false]));
                 $booking->cottage->update([
                     'isDayAvailable' =>false
                 ]);
             }if($time_type == "PM" && $booking->cottage->isNightAvailable ==true){
+                dd($cottage->update(['isNightAvailable' =>false]));
                 $booking->cottage->update([
                     'isNightAvailable' =>false
                 ]);
