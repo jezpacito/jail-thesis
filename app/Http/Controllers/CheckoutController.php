@@ -8,7 +8,7 @@ use App\Payment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Nexmo\Laravel\Facade\Nexmo;
 class CheckoutController extends Controller
 {
     public function checkout(Cottage $cottage, Request $request)
@@ -89,9 +89,17 @@ class CheckoutController extends Controller
                 // dd('night');
                $cottage->update([
                 'isNightAvailable' =>0
-            ]);
-                
+                ]);
               }
+
+              //dont change from number
+              //send sms to guest
+              Nexmo::message()->send([
+                'to'   => auth()->user()->contact_no,
+                'from' => '+639218518702',
+                'text' => 'Thank you for booking at IML Resort. We have received your payment for the reservation to '.
+                 $cottage->name . ' amounting of ' . $payment->amount_paid
+            ]);
             
           });
         

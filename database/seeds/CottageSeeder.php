@@ -12,7 +12,22 @@ class CottageSeeder extends Seeder
      */
     public function run()
     {
-        factory(Cottage::class,10)->create();
+        factory(Cottage::class)->create([
+            'name' =>'Cottage 1',
+            'category_id' =>1
+        ]);
+        factory(Cottage::class)->create([
+            'name' =>'Cottage 2',
+            'category_id' =>1
+        ]);
+        factory(Cottage::class)->create([
+            'name' =>'Room 2',
+            'category_id' =>2
+        ]);
+        factory(Cottage::class)->create([
+            'name' =>'Room 1',
+            'category_id' =>2
+        ]);
 
     }
 }

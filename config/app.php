@@ -139,6 +139,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Nexmo\Laravel\NexmoServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
@@ -192,6 +193,7 @@ return [
     */
 
     'aliases' => [
+        'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'App' => Illuminate\Support\Facades\App::class,

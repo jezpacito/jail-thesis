@@ -2,7 +2,7 @@
 
 use App\Cottage;
 use Illuminate\Support\Facades\Route;
-
+use Nexmo\Laravel\Facade\Nexmo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 // Route::view('/stepss','step-test');
 
-
+Route::get('/test-sms',function(){
+    Nexmo::message()->send([
+        'to'   => '+639218518702',
+        'from' => '+639218518702',
+        'text' => 'TEST message.'
+    ]);
+    return 'sent';
+});
 Route::get('/', function () {
     $cottages = Cottage::where('isNightAvailable',true)
     ->orWhere('isDayAvailable',true)
@@ -36,7 +43,9 @@ Route::middleware('auth')->group(function () {
     Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');
     //end payment
 
-    Route::post('/booking','BookingController@book')->name('booking');
+    Route::get('/bookings','BookingController@booking_list');
+
+    // Route::post('/booking','BookingController@book')->name('booking');
 
     Route::resource('prisoner','PrisonerController');
 
