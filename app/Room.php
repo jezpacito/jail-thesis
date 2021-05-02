@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     protected $fillable = [
-        'name','room_types_id','status','description','no_of_person','price'
+        'name',
+        'category_id',
+        'isVacant',
+        'description',
+        'no_of_person',
+        'price'
     ];
-
+    public function cottages(){
+        return $this->hasMany(Cottage::class);
+    }
 }

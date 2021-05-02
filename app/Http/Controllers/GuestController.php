@@ -13,6 +13,11 @@ class GuestController extends Controller
      return view('auth.register');
     }
 
+    public function index(){
+        $users = \App\User::role('guest')->get();
+        dd($users);
+    }
+
     public function register(){
         $user = User::create(request()->all());
         $user->update(['status'=>true]);

@@ -31,7 +31,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    
+
     {{--    icon--}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
@@ -52,7 +52,7 @@
             <div id="wrapper">
                 <!-- Sidebar -->
                 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            
+
                     <!-- Sidebar - Brand -->
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                         <div class="sidebar-brand-icon rotate-n-15">
@@ -60,25 +60,25 @@
                         </div>
                         <div class="sidebar-brand-text mx-1"> <sup>Reservation System</sup></div>
                     </a>
-            
+
                     <!-- Divider -->
                     <hr class="sidebar-divider my-0">
-            
+
                     <!-- Nav Item - Dashboard -->
                     <li class="nav-item {{ Nav::isRoute('home') }}">
                         <a class="nav-link" href="{{ route('home') }}">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>{{ __('Dashboard') }}</span></a>
                     </li>
-            
+
                     <!-- Divider -->
                     <hr class="sidebar-divider">
-            
+
                     <!-- Heading -->
                     <div class="sidebar-heading">
                         {{ __('Settings') }}
                     </div>
-            
+
                     @role('landlord')
                     <!-- Nav Item - Profile -->
                     <li class="nav-item {{ Nav::isRoute('profile') }}">
@@ -88,7 +88,7 @@
                         </a>
                     </li>
                     @endrole
-            
+
                     <!-- Nav Item - About -->
                     <li class="nav-item {{ Nav::isRoute('about') }}">
                         <a class="nav-link" href="{{ route('about') }}">
@@ -96,8 +96,8 @@
                             <span>{{ __('About') }}</span>
                         </a>
                     </li>
-            
-            
+
+
                     <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                            aria-expanded="true" aria-controls="collapseTwo">
@@ -113,9 +113,9 @@
                             </div>
                         </div>
                     </li>
-                  
-            
-            
+
+
+
                     @role('admin')
                     <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
@@ -129,7 +129,7 @@
             {{--                    <a class="collapse-item" href="#">Add Staff</a>--}}
                                 <a class="collapse-item" href="/staff">View List</a>
             {{--                    <a class="collapse-item" href="#">View List</a>--}}
-            
+
                             </div>
                         </div>
                     </li>
@@ -147,7 +147,7 @@
                                 <h6 class="collapse-header">Logs Reports</h6>
                                 <a class="collapse-item" href="#">Monthly Logs</a>
                                 <a class="collapse-item" href="#">Yearly Logs</a>
-            
+
                             </div>
                         </div>
                     </li>
@@ -163,7 +163,7 @@
                                 <h6 class="collapse-header">Booking Details</h6>
                                 <a class="collapse-item" href="#">List of Booking</a>
                                 {{-- <a class="collapse-item" href="#">Yearly Logs</a> --}}
-            
+
                             </div>
                         </div>
                     </li>
@@ -183,32 +183,32 @@
                             <span>FINGER PRINT LOGS</span></a>
                     </li>
              --}}
-            
+
                     <!-- Divider -->
                     <hr class="sidebar-divider d-none d-md-block">
-            
+
                     <!-- Sidebar Toggler (Sidebar) -->
                     <div class="text-center d-none d-md-inline">
                         <button class="rounded-circle border-0" id="sidebarToggle"></button>
                     </div>
-            
+            {{dd('sss')}}
                 </ul>
                 <!-- End of Sidebar -->
-            
+
                 <!-- Content Wrapper -->
                 <div id="content-wrapper" class="d-flex flex-column">
-            
+
                     <!-- Main Content -->
                     <div id="content">
-            
+
                         <!-- Topbar -->
                         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-            
+
                             <!-- Sidebar Toggle (Topbar) -->
                             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                                 <i class="fa fa-bars"></i>
                             </button>
-            
+
                             <!-- Topbar Search -->
                             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                                 <div class="input-group">
@@ -220,10 +220,10 @@
                                     </div>
                                 </div>
                             </form>
-            
+
                             <!-- Topbar Navbar -->
                             <ul class="navbar-nav ml-auto">
-            
+
                                 <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                                 <li class="nav-item dropdown no-arrow d-sm-none">
                                     <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -243,7 +243,7 @@
                                         </form>
                                     </div>
                                 </li>
-            
+
                                 <!-- Nav Item - Alerts -->
                                 <li class="nav-item dropdown no-arrow mx-1">
                                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -292,7 +292,7 @@
                                         <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                                     </div>
                                 </li>
-            
+
                                 <!-- Nav Item - Messages -->
                                 <li class="nav-item dropdown no-arrow mx-1">
                                     <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -348,9 +348,9 @@
                                         <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                                     </div>
                                 </li>
-            
+
                                 <div class="topbar-divider d-none d-sm-block"></div>
-            
+
                                 <!-- Nav Item - User Information -->
                                 <li class="nav-item dropdown no-arrow">
                                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -378,24 +378,24 @@
                                         </a>
                                     </div>
                                 </li>
-            
+
                             </ul>
-            
+
                         </nav>
                         <!-- End of Topbar -->
-            
+
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
-            
+
                             @yield('content')
                             @include('sweetalert::alert')
-            
+
                         </div>
                         <!-- /.container-fluid -->
-            
+
                     </div>
                     <!-- End of Main Content -->
-            
+
                     <!-- Footer -->
                     <footer class="sticky-footer bg-white">
                         <div class="container my-auto">
@@ -405,12 +405,12 @@
                         </div>
                     </footer>
                     <!-- End of Footer -->
-            
+
                 </div>
                 <!-- End of Content Wrapper -->
-            
+
             </div>
-       
+
     </div>
     </div>
 </body>

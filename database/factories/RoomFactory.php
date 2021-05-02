@@ -6,10 +6,10 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Room::class, function (Faker $faker) {
     return [
-        'name' => 'Room',
-        'room_types_id' =>$faker->randomElements([1,2]),
-        'status' =>'available',
+        'name' => 'Room ' . $faker->colorName,
+        'category_id' =>2,
         'description' =>$faker->sentence,
-        'price' =>$faker->randomElements([3500,4500]),
+        'price' => 2400,
+        'no_of_person' =>5
     ];
 });

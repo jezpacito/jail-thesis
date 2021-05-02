@@ -80,7 +80,7 @@
                 <span>{{ __('About') }}</span>
             </a>
         </li>
-       
+
 
 
         @role('admin')
@@ -105,16 +105,17 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>Guest</span>
+                <span>Cottage/Room</span>
             </a>
+
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Guest's Personal Infos</h6>
-                    <a class="collapse-item" href="#">All Guests</a>
-                   {{-- <a class="collapse-item" href="#">Prisoner's Logs</a> --}}
-{{--                    <a class="collapse-item" href="#">Current Prisoners</a>--}}
+                    <a class="collapse-item" href="/cottage">List of Cottages </a>
+                    <a class="collapse-item" href="/rooms">List of Rooms </a>
                 </div>
             </div>
+
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1"
@@ -148,7 +149,7 @@
                 </div>
             </div>
         </li>
-      
+
 
 
 
@@ -212,9 +213,9 @@
                         </div>
                     </li>
 
-                   
 
-             
+
+
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 

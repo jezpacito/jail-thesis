@@ -1,6 +1,7 @@
 <?php
 
 use App\Cottage;
+use App\Room;
 use Illuminate\Database\Seeder;
 
 class CottageSeeder extends Seeder
@@ -21,13 +22,18 @@ class CottageSeeder extends Seeder
             'category_id' =>1
         ]);
         factory(Cottage::class)->create([
-            'name' =>'Room 2',
-            'category_id' =>2
+            'name' =>'Cottage 3',
+            'category_id' =>1
         ]);
         factory(Cottage::class)->create([
-            'name' =>'Room 1',
-            'category_id' =>2
+            'name' =>'Cottage 4',
+            'category_id' =>1
         ]);
+        factory(Cottage::class)->create([
+            'name' =>'Cottage 5',
+            'category_id' =>1
+        ]);
+        factory(Room::class,5)->create();
 
     }
 }

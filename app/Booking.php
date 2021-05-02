@@ -12,7 +12,8 @@ class Booking extends Model
         'booking_time',
         'guest_id',
         'time_type',
-        'cottage_id'
+        'cottage_id',
+        'isCheckout'
     ];
 
     public function guest(){
@@ -23,5 +24,5 @@ class Booking extends Model
     }
 
 
-    
+
 }

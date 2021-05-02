@@ -1,6 +1,7 @@
 <?php
 
 use App\Cottage;
+use App\Room;
 use Illuminate\Support\Facades\Route;
 use Nexmo\Laravel\Facade\Nexmo;
 /*
@@ -27,13 +28,18 @@ Route::get('/', function () {
     $cottages = Cottage::where('isNightAvailable',true)
     ->orWhere('isDayAvailable',true)
     ->latest()->get();
-    return view('homepage.home',compact('cottages'));
+    $rooms  = Room::where('isVacant',true)->get();
+    return view('homepage.home',compact('cottages','rooms'));
 })->name('/');
 
 Route::get('registration/guest','GuestController@guest');
 Route::post('/register/guest','GuestController@register')->name('register.guest');
 
 
+//cottage routes
+Route::resource('/cottage','CottageController');
+Route::resource('/rooms','RoomController');
+Route::get('room/list','CottageController@index_room');
 
 \Illuminate\Support\Facades\Auth::routes();
 
@@ -47,10 +53,6 @@ Route::middleware('auth')->group(function () {
 
     // Route::post('/booking','BookingController@book')->name('booking');
 
-    Route::resource('prisoner','PrisonerController');
-
-    Route::resource('guard','JailGuardController');
-
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/profile', 'ProfileController@index')->name('profile');
@@ -63,26 +65,10 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/status/{staff}','UserController@update_status');
 
-    //update jail guard status
-    Route::put('/status/guard/{guard}','JailGuardController@update_status');
 
     Route::put('/staff/update/{staff}','UserController@update');
 
 
-    Route::prefix('prisoner')->group(function () {
-        Route::get('/{prisoner}/physical_details','PrisonerController@edit_prisoner_personal_data');
-
-        Route::put('/{prisoner}/physical_details','PrisonerController@update_prisoner_personal_data');
-
-        Route::get('/{prisoner}/jailBookingOffense','PrisonerController@edit_jail_booking_and_offense_data');
-
-        Route::put('/{prisoner}/jailBookingOffense','PrisonerController@update_jail_booking_and_offense_data');
-
-        Route::get('/{prisoner}/physicalDefense','PrisonerController@edit_physical_defense');
-
-        Route::put('/{prisoner}/physicalDefense','PrisonerController@update_physical_defense');
-
-    });
 
     Route::prefix('report')->group(function () {
         Route::get('/monthly/report','ReportController@monthly');
@@ -101,9 +87,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/temp',function (){
         return view('prisoner.insert');
     });
-    
-    //add finger print number
-    Route::post('/add/fingerprint','JailGuardController@jailGuard_fingerPrint')->name('add.fingerprint');
+
 
     //vue route
     Route::get('/logs',function(){
@@ -115,9 +99,7 @@ Route::middleware('auth')->group(function () {
 
     //rfid tap
     Route::post('/contact-form','LogsController@attendance');
-    Route::get('rfid-test', function (){
-        return view('prisoner.autosave');
-    });
+
 
     Route::get('test',function (){
         return view('test');

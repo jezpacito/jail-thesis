@@ -14,7 +14,7 @@
     <img src="" class="w3-bar-item w3-button"><b>Reservation System</b>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-        @if (Auth::check()) 
+        @if (Auth::check())
           <a class="w3-bar-item w3-button" href="{{ route('logout') }}"
               onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -38,10 +38,10 @@
   <img class="w3-image" src="{{ url('/img/banner.jpg') }}" alt="Architecture" width="1500" height="100">
   <div class="w3-display-middle w3-margin-top w3-center">
       </h1>
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>IML Eco Park </h1>
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>IML ECO PARK</h1>
       <div class=" w3-text-white w3-black w3-opacity-min">
         Maasim Sarangani Province
-      </div>  
+      </div>
   </div>
 </header>
 
@@ -53,11 +53,12 @@
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
   </div>
   {{-- <div class="w3-display-topleft w3-black w3-padding">{{ $cottage->category->cottage_type }} {{ $cottage->id }}</div> --}}
-  
-    
+
+
   <div class="w3-row-padding">
+      <h1>Cottages</h1>
     @foreach ($cottages as $cottage)
-  
+
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <img src="/img/cottage.jpg" alt="House" style="width:99%">
@@ -65,21 +66,21 @@
         <h3>{{ $cottage->name }}</h3>
         <p>{{ $cottage->description }}</p>
         @auth
-        <p>Night Rate: {{ $cottage->nightRate }} 
+        <p>Night Rate: {{ $cottage->nightRate }}
           |  @if($cottage->isNightAvailable ==true)
-          
+
             <form method="Get" action="/checkout/{{ $cottage->id }}" >
               {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
               <input name="rate" value="night" type="hidden" value="secret">
               <button class="btn-primary btn-sm" type="submit"> Book Now for 850 </button>
             </form>
-           
+
           @else
           <b> not available</b>
           @endif
         </p>
           <p>Day Rate: {{ $cottage->dayRate }} @if($cottage->isDayAvailable ==true)
-        
+
             <form method="Get" action="/checkout/{{ $cottage->id }}" >
             {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
             <input name="rate" value="day" type="hidden" value="secret">
@@ -88,34 +89,76 @@
         @else
          <b> not available</b>
         @endif
-        </p>  
-  
+        </p>
+
          @endauth
-       
-         @if (!Auth::check()) 
+
+         @if (!Auth::check())
           <a class="btn-primary btn-sm btn-block w3-display-container" href="/login" role="button"><h5>Book Now</h5></a>
           @endif
       </div>
     </div>
     @endforeach
-    
+
   </div>
   </div>
-  
+
+
+
+<div class="w3-row-padding">
+    @foreach ($rooms as $room)
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black ">{{ $room->name }}</div>
+             <img src="/img/cottage.jpg" alt="House" style="width:100%">
+        </div>
+      <div>
+        <button class="btn btn-primary btn-sm mt-1"> Book Room </button>
+        <p> {{ $room->description }}</p>
+      </div>
+    </div>
+    @endforeach
+</div>
+
 
   <!-- About Section -->
   <div class="w3-container w3-padding-32" id="about">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16 text-center"><strong>About us</strong></h3>
+
+    <p>
+    <p class="text-center">The Beautiful IML ECO PARK Tourist Destination</p>
+<p class="text-center">You want a place where you can relax?There is a solution.The place   of Glan is known as  the most beautiful place, so here is the IML Eco Park to fulfill your dreams.
+</p>
+<p class="text-center">
+It is evident that the Sarangani Province is taking their tourism industry seriously. It is the newest resort and recreational area called the IML Eco Park found at the peak of Lumasal Village in Maasim, Sarangani. This former hacienda is now open to the public and groomed to be the next important tourist attraction of Sarangani.
+
+</p>
+<p class="text-center">
+IML’ stands for Irineo Miguel Lopez. The current owner is Mr. Jojo Lopez, former Mayor of Maasim, Sarangani and his beloved wife no other than Haydee Lopez. Jojo Lopez, ever the visionary town leader, can see where the municipality is heading. He was an excellent leader of his constituents by simply being a peace advocate. The IML Eco Park is barely months old and they’re adding more activities that aims to attract more tourists to visit the place. It is perfect for family and barkada trips. A 60 kilometer drives from General Santos City. This place is overlooking of Sarangani Bay and coconut plantation, so you may enjoy the fresh air and the nice view that will make you stress-free from the long and exhausting travel.
+
+</p>
+
+
+
+    </p>
+    <p class="text-center">
+
+<br>Contact</br>
+<br>Lumsal Sarangani Province,</br>
+<br>Bayan ng Maasim,</br>
+<br>Sarangani,Philippines,</br>
+<br>+639157375868</br>
+    </P>
+
+    <p>
+
     </p>
   </div>
 
- 
 
-  
-  
+
+
+
 <!-- Image of location/map -->
 <div class="w3-container">
   <img src="/w3images/map.jpg" class="w3-image" style="width:100%">

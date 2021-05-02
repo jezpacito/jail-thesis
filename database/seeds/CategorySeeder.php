@@ -16,10 +16,10 @@ class CategorySeeder extends Seeder
 
         Category::insert([
            [
-               'cottage_type' =>'cottage'
+               'type' =>'cottage'
            ],
            [
-            'cottage_type' =>'room'
+              'type' =>'room'
         ],
         ]);
     }

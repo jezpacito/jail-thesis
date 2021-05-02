@@ -13,7 +13,7 @@ class Cottage extends Model
         'isVacant',
         'category_id',
         'isNightAvailable',
-        'isDayAvailable'
+        'isDayAvailable',
     ];
 
     public function category(){
