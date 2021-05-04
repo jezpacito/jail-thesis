@@ -20,6 +20,8 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Booking Details</h6>
+                            <a href="/generate/report" class="btn btn-primary mt-2"> Reports Booking Cottages</a>
+                            <a href="#" class="btn btn-primary mt-2"> Reports Room Cottages</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -31,10 +33,10 @@
                                         <th>Booking Type</th>
                                         <th>Number of Person</th>
                                         <th>Cottage Name</th>
-                                        <th>Cottage Type</th>
+                                        {{-- <th>Cottage Type</th> --}}
                                     </tr>
                                     </thead>
-                                
+
                                     <tbody>
 
                                         @forelse ($bookings as $booking )
@@ -44,14 +46,14 @@
                                             <td>{{ $booking->time_type }}</td>
                                             <td>{{ $booking->number_persion }}</td>
                                             <td>{{ $booking->cottage->name}}</td>
-                                            <td>{{ $booking->cottage->category->cottage_type}}</td>
+                                            {{-- <td>{{ $booking->cottage->category->cottage_type}}</td> --}}
                                         </tr>
                                         @empty
-                                        <span class="text-danger"> <h2> no booking  </h2></span> 
-                                            
+                                        <span class="text-danger"> <h2> no booking  </h2></span>
+
                                         @endforelse
-                                    
-                                    
+
+
 
                                     </tbody>
                                 </table>

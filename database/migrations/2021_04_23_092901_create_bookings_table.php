@@ -19,7 +19,7 @@ class CreateBookingsTable extends Migration
             $table->time('booking_time');
             $table->string('time_type');
             $table->string('number_persion');
-            $table->double('isCheckout')->false();
+            $table->double('isCheckout')->default(false);
             $table->unsignedBigInteger('guest_id');
             $table->unsignedBigInteger('cottage_id')->nullable();
             $table->unsignedBigInteger('room_id')->nullable();

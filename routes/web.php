@@ -34,8 +34,7 @@ Route::get('/', function () {
 
 Route::get('registration/guest','GuestController@guest');
 Route::post('/register/guest','GuestController@register')->name('register.guest');
-
-
+Route::get('/generate/report','ReportController@normal_report');
 //cottage routes
 Route::resource('/cottage','CottageController');
 Route::resource('/rooms','RoomController');

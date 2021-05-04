@@ -22,6 +22,17 @@ class UserTableSeeder extends Seeder
             ]);
        $user->assignRole('admin');
 
+
+       $user= \App\User::create([
+        'name' =>'Marie',
+        'last_name' =>'Cruz',
+       'email' =>'guest@gmail.com',
+        'password' =>'password',
+        'contact_no' =>'+639218518702',
+       'status' =>1,
+        ]);
+   $user->assignRole('guest');
+
         $user= \App\User::create([
             'name' =>'Jane',
             'last_name' =>'Doe',

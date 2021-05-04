@@ -13,7 +13,8 @@ class Booking extends Model
         'guest_id',
         'time_type',
         'cottage_id',
-        'isCheckout'
+        'isCheckout',
+        'room_id'
     ];
 
     public function guest(){

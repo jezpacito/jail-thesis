@@ -55,7 +55,7 @@
   {{-- <div class="w3-display-topleft w3-black w3-padding">{{ $cottage->category->cottage_type }} {{ $cottage->id }}</div> --}}
 
 
-  <div class="w3-row-padding">
+  <div class="w3-row-padding text-center">
       <h1>Cottages</h1>
     @foreach ($cottages as $cottage)
 
@@ -105,12 +105,13 @@
 
 
 
-<div class="w3-row-padding">
+<div class="w3-row-padding text-center">
+    <h1>Rooms</h1>
     @foreach ($rooms as $room)
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black ">{{ $room->name }}</div>
-             <img src="/img/cottage.jpg" alt="House" style="width:100%">
+             <img src="/img/room1.jpg" alt="House" style="width:100%">
         </div>
       <div>
         <button class="btn btn-primary btn-sm mt-1"> Book Room </button>

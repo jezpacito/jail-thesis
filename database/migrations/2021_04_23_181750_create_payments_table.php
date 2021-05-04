@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('guest_id');
             $table->integer('amount_paid');
+            $table->string('ref_no');
             $table->timestamps();
         });
     }

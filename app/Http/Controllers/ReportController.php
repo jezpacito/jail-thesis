@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
 use App\OffenseData;
 use App\Prisoner;
 
@@ -12,6 +13,13 @@ use Illuminate\Support\Facades\Artisan;
 
 class ReportController extends Controller
 {
+
+    public function normal_report(){
+        $bookings = Booking::where('cottage_id',!null)->with('cottage')->get();
+
+        $pdf = PDF::loadView('reports.print_pdf', compact('bookings'));
+        return $pdf->stream('report.pdf');
+    }
     public function select(){
         return view('reports.select');
     }
