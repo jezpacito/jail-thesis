@@ -6,26 +6,25 @@
 <body>
 
 <div class="w3-container">
-    {{-- <h2>List of Prisoners for this Month of {{$month_name}}</h2> --}}
+     <h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         IML ECO PARK REPORTS</h2>
 {{--    <p>The w3-striped class adds zebra-stripes to a table:</p>--}}
 
     <table class="w3-table w3-striped">
         <tr>
             <th>Guest Name</th>
             <th>Booking Date</th>
-            <th>Booking Type</th>
-            <th>Number of Person</th>
             <th>Cottage Name</th>
-            {{-- <th>Cottage Type</th> --}}
+             <th>Amount Paid</th>
         </tr>
-        @forelse($bookings as $booking)
+        @forelse($histories as $history)
 
         <tr>
-                <td>{{ $booking->guest->name }} {{ $booking->guest->last_name }}</td>
-                <td>{{ $booking->booking_date }}</td>
-                <td>{{ $booking->time_type }}</td>
-                <td>{{ $booking->number_persion }}</td>
-                <td>{{ $booking->cottage->name}}</td>
+                <td>{{$history->guest->name}}</td>
+                <td>{{ $history->date_booked }}</td>
+                <td>{{ $history->cottage->name }}</td>
+                  <td>{{$history->guest->payment->amount_paid}}</td>
                 {{-- <td>{{ $booking->cottage->category->cottage_type}}</td> --}}
         </tr>
             @empty

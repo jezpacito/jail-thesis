@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\History;
 use App\OffenseData;
 use App\Prisoner;
 
@@ -15,9 +16,9 @@ class ReportController extends Controller
 {
 
     public function normal_report(){
-        $bookings = Booking::where('cottage_id',!null)->with('cottage')->get();
+        $histories = History::whereDate('created_at',Carbon::now())->get();
 
-        $pdf = PDF::loadView('reports.print_pdf', compact('bookings'));
+        $pdf = PDF::loadView('reports.print_pdf', compact('histories'));
         return $pdf->stream('report.pdf');
     }
     public function select(){
@@ -30,27 +31,28 @@ class ReportController extends Controller
             $month= Carbon::parse($request->month)->month;
             $year= Carbon::parse($request->month)->year;
 
-            $datas = OffenseData::with('prisoner')
-                ->whereMonth('date_imprisonment',$month)
-                ->whereYear('date_imprisonment',$year)
+            $histories = History::whereMonth('date_booked',$month)
+                ->whereYear('date_booked',$year)
                 ->get();
 
             $month_name= Carbon::parse($request->month)->monthName;
             Artisan::call('view:clear');
-            $pdf = PDF::loadView('reports.print_pdf', compact('datas','month_name'));
-            return $pdf->stream('report.pdf');
-        }else{
-            $year= Carbon::parse($request->year)->year;
-
-            $datas = OffenseData::with('prisoner')
-                ->whereYear('date_imprisonment',$year)
-                ->get();
-
-            $month_name= Carbon::parse($request->year)->monthName;
-            Artisan::call('view:clear');
-            $pdf = PDF::loadView('reports.print_pdf', compact('datas','month_name'));
+            $pdf = PDF::loadView('reports.print_pdf', compact('histories','month_name'));
             return $pdf->stream('report.pdf');
         }
+    
+//        else{
+//            $year= Carbon::parse($request->year)->year;
+//
+//            $datas = OffenseData::with('prisoner')
+//                ->whereYear('date_imprisonment',$year)
+//                ->get();
+//
+//            $month_name= Carbon::parse($request->year)->monthName;
+//            Artisan::call('view:clear');
+//            $pdf = PDF::loadView('reports.print_pdf', compact('datas','month_name'));
+//            return $pdf->stream('report.pdf');
+//        }
 
     }
 

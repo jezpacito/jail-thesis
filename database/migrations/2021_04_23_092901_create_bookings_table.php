@@ -23,6 +23,7 @@ class CreateBookingsTable extends Migration
             $table->unsignedBigInteger('guest_id');
             $table->unsignedBigInteger('cottage_id')->nullable();
             $table->unsignedBigInteger('room_id')->nullable();
+            $table->boolean('isFinished')->default(false);
             $table->timestamps();
         });
     }

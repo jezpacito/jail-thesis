@@ -75,4 +75,8 @@ class User extends Authenticatable
     public function logs(){
         return $this->hasMany(Logs::class,'user_id','id');
     }
+
+    public function payment(){
+        return $this->hasOne(Payment::class,'guest_id','id');
+    }
 }

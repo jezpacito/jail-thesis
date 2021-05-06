@@ -17,28 +17,28 @@
     <div class="container" style="margin-top:10%;margin-bottom:10%">
         <div class="row justify-content-center">
             <div class="col-md-12">
-          
+
                 <div class="">
                     <p>IML ECO RESORT PAYMENT FORM</p>
                 </div>
                 <div class="card p-2 bg-light">
                     <form action="{{route('checkout.credit-card')}}"  method="post" id="payment-form">
-                        @csrf          
-                        <div class="form-group"> 
+                        @csrf
+                        <div class="form-group">
                             <label>Enter Number of Person</label>
                             <input type="number" class="form-control" id="birthdaytime" name="number_persion">
                           </div>
-        
+
                             <label> Date Time Picker</label>
-                              <div class="form-group"> 
+                              <div class="form-group">
                                 {{-- <input type="datetime-local" class="form-control" id="birthdaytime" name="booking"> --}}
                                 <input type="date" class="form-control" id="birthdaytime" name="booking">
 
                               </div>
-                         
+
                               <input name="rate" value="{{ $pay }}" type="hidden" value="secret">
                             <input name="cottage_id" value="{{ $cottage->id }}" type="hidden" value="secret">
-                                
+
                         <div class="form-group">
                             <div class="card-header">
                                 <label for="card-element">
@@ -53,6 +53,13 @@
                                 <div id="card-errors" role="alert"></div>
                                 <input type="hidden" name="plan" value="" />
                             </div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                            <label class="form-check-label" for="defaultCheck1">
+                                Click here to indicate that you have read and agree to the terms presented in the Terms and Conditions agreement
+
+                            </label>
                         </div>
                         <div class="card-footer">
                           <button
@@ -88,15 +95,15 @@
                 iconColor: '#fa755a'
             }
         };
-    
+
         const stripe = Stripe('{{ $stripe_key }}', { locale: 'en' }); // Create a Stripe client.
         const elements = stripe.elements(); // Create an instance of Elements.
         const cardElement = elements.create('card', { style: style }); // Create an instance of the card Element.
         const cardButton = document.getElementById('card-button');
         const clientSecret = cardButton.dataset.secret;
-    
+
         cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
-    
+
         // Handle real-time validation errors from the card Element.
         cardElement.addEventListener('change', function(event) {
             var displayError = document.getElementById('card-errors');
@@ -106,13 +113,13 @@
                 displayError.textContent = '';
             }
         });
-    
+
         // Handle form submission.
         var form = document.getElementById('payment-form');
-    
+
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-    
+
         stripe.handleCardPayment(clientSecret, cardElement, {
                 payment_method_data: {
                     //billing_details: { name: cardHolderName.value }
