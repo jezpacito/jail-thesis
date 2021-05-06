@@ -40,7 +40,7 @@ class ReportController extends Controller
             $pdf = PDF::loadView('reports.print_pdf', compact('histories','month_name'));
             return $pdf->stream('report.pdf');
         }
-    
+
 //        else{
 //            $year= Carbon::parse($request->year)->year;
 //
