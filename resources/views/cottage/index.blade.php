@@ -97,6 +97,7 @@
 
                                                 <td>
                                                     <a  href="cottage/{{$cottage->id}}/edit" class="btn btn-primary btn-sm"> Update</a>
+
                                                 </td>
                                             </tr>
                                         @endforeach

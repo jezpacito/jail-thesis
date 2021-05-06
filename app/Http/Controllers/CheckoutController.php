@@ -16,7 +16,7 @@ class CheckoutController extends Controller
 
             $stripe=  \Stripe\Stripe::setApiKey('sk_test_51IjU43AjEcg5jEfIK9bgGTFzW5JFA9TZrDppJQBTqkgYreuvOqUeBcTRqcuGs02oa4StVqQslWUm4c3mIC1L4MFN00OsYrOw3p');
             if($request->rate == 'night'){
-                $amount = $cottage->nightRate;
+                $amount = $cottage->nightRate/2;
                 $pay = $cottage->nightRate;
                 $amount *= 100;
                 $amount = (int) $amount;
@@ -24,7 +24,7 @@ class CheckoutController extends Controller
 
             }
             if($request->rate == 'day'){
-                $amount = $cottage->dayRate;
+                $amount = $cottage->dayRate/2;
                 $pay = $cottage->dayRate;
                 $amount *= 100;
                 //times cent
@@ -35,7 +35,7 @@ class CheckoutController extends Controller
       $intent =  DB::transaction(function () use($amount){
 
               $payment_intent = \Stripe\PaymentIntent::create([
-                  'description' => 'Stripe Test Payment',
+//                  'description' => 'Stripe Test Payment',
                   'amount' => $amount,
                   'currency' => 'PHP',
                   'description' => 'Reservation Payment for IML Eco Park',
@@ -74,7 +74,7 @@ class CheckoutController extends Controller
               ]);
               $payment = Payment::create([
                 'guest_id' =>auth()->user()->id,
-                'amount_paid' =>$request->rate,
+                'amount_paid' =>$request->rate/2,
                 'ref_no' =>'ref-'.mt_rand()
               ]);
 
