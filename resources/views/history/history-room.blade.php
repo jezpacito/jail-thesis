@@ -41,10 +41,10 @@
                                     <tbody>
                                     @forelse($histories as $history)
                                         <tr>
-                                            <td>{{$history->guest}}</td>
+                                            <td>{{$history->guest->name  }}</td>
                                             <td>{{$history->date_booked}}</td>
                                             <td>{{$history->room->name}}</td>
-                                            {{-- <td>{{$history->guest->payment->amount_paid}}</td> --}}
+                                             <td>{{$history->guest->payment->amount_paid}}</td>
                                         </tr>
                                     @empty
                                         NO RECORD FOUND
