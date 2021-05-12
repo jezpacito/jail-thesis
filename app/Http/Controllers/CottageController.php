@@ -7,8 +7,23 @@ use Illuminate\Http\Request;
 
 class CottageController extends Controller
 {
+    public  function  night_status($id){
+       $cottage = Cottage::findOrFail($id);
+        $cottage->update([
+            'isNightAvailable' =>false
+        ]);
 
+        return redirect()->back()->with('success','Updated!');
+    }
 
+    public  function  day_status($id){
+        $cottage = Cottage::findOrFail($id);
+        $cottage->update([
+            'isDayAvailable' =>false
+        ]);
+
+        return redirect()->back()->with('success','Updated!');
+    }
     /**
      * Display a listing of the resource.
      *

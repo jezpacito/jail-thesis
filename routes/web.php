@@ -37,6 +37,11 @@ Route::post('/register/guest','GuestController@register')->name('register.guest'
 Route::get('/generate/report','ReportController@normal_report');
 //cottage routes
 Route::resource('/cottage','CottageController');
+
+Route::get('/cottage/night/{id}','CottageController@night_status');
+
+Route::get('/cottage/day/{id}','CottageController@day_status');
+
 Route::resource('/rooms','RoomController');
 Route::get('room/list','CottageController@index_room');
 
