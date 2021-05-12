@@ -54,10 +54,11 @@
                                 <input type="hidden" name="plan" value="" />
                             </div>
                         </div>
+                         <input type="hidden" name="type" value="{{ $type }}">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
                             <label class="form-check-label" for="defaultCheck1">
-                                Click here to indicate that you have read and agree to the terms presented in the Terms and Conditions agreement
+                                Click here to indicate that you have read and agree to the terms presented in the Terms and Conditions agreement (No Refund Policy)
 
                             </label>
                         </div>

@@ -15,9 +15,10 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('guest_id');
+            $table->unsignedBigInteger('user_id');
             $table->date('date_booked');
-            $table->string('cottage_id');
+            $table->unsignedBigInteger('cottage_id')->nullable();
+            $table->unsignedBigInteger('room_id')->nullable();
             $table->timestamps();
         });
     }

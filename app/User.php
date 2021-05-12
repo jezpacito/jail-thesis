@@ -79,4 +79,8 @@ class User extends Authenticatable
     public function payment(){
         return $this->hasOne(Payment::class,'guest_id','id');
     }
+
+    public function histories(){
+        return $this->hasMany(History::class,'guest_id','id');
+    }
 }

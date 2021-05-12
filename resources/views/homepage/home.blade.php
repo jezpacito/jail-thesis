@@ -114,8 +114,13 @@
              <img src="/img/room1.jpg" alt="House" style="width:100%">
         </div>
       <div>
-        <button class="btn btn-primary btn-sm mt-1"> Book Room </button>
-        <p> {{ $room->description }}</p>
+        <form method="Get" action="/checkout/{{ $room->id }}" >
+            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+            <input name="room" value="room_booking" type="hidden" value="secret">
+            <input name="price" value="{{ $room->price }}" type="hidden" value="secret">
+            <button class="btn-primary btn-sm" type="submit"> Book Now f</button>
+          </form>
+        <p> Room Price: {{ $room->price }}</p>
       </div>
     </div>
     @endforeach
@@ -128,10 +133,10 @@
 
     <p>
     <p class="text-center">The Beautiful IML ECO PARK Tourist Destination</p>
-<p class="text-center">You want a place where you can relax?There is a solution.The place   of Glan is known as  the most beautiful place, so here is the IML Eco Park to fulfill your dreams.
+<p class="text-center">You want a place where you can relax?There is a solution.The place of Maasim is known as  the most beautiful place, so here is the IML Eco Park to fulfill your dreams.
 </p>
 <p class="text-center">
-It is evident that the Sarangani Province is taking their tourism industry seriously. It is the newest resort and recreational area called the IML Eco Park found at the peak of Lumasal Village in Maasim, Sarangani. This former hacienda is now open to the public and groomed to be the next important tourist attraction of Sarangani.
+It is evident that the Sarangani Province is taking their tourism industry seriously. It is the newest resort and recreational area called the IML Eco Park found at the peak of brgy.Lumasal in Maasim, Sarangani. This former hacienda is now open to the public and groomed to be the next important tourist attraction of Sarangani.
 
 </p>
 <p class="text-center">

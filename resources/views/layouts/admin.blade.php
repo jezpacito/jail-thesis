@@ -117,12 +117,8 @@
             </div>
 
         </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Reports</span>
-            </a>
+
+     {{-- mao ni ang side nav --}}
             <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -143,8 +139,10 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Booking Details</h6>
-                    <a class="collapse-item" href="/bookings">List of Booking</a>
-                    <a class="collapse-item" href="/history">Booking History</a>
+                    <a class="collapse-item" href="/bookings">Cottage Booking</a>
+                    <a class="collapse-item" href="/bookings/room">Room Booking</a>
+                    <a class="collapse-item" href="/history">Booking Histories Cottage</a>
+                    <a class="collapse-item" href="/history/room">Booking History Room</a>
 
                 </div>
             </div>

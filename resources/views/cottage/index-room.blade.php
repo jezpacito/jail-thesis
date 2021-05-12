@@ -16,6 +16,7 @@
                         For more information about DataTables, please visit the <a target="_blank"
                                                                                    href="https://datatables.net">official DataTables documentation</a>.</p>
 
+
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -89,6 +90,7 @@
 
                                                 <td>
                                                     <a href="/rooms/{{$room->id}}/edit " class="btn btn-primary btn-sm"> Update </a>
+                                                    <a href="#" class="btn btn-primary btn-sm"> Make room available/unavailable </a>
                                                 </td>
                                             </tr>
                                         @endforeach
