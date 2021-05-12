@@ -15,16 +15,20 @@ class Booking extends Model
         'cottage_id',
         'isCheckout',
         'room_id',
-        'isFinished'
+        'isFinished',
     ];
 
     public function guest(){
         return $this->belongsTo(User::class,'guest_id','id');
     }
+
     public function cottage(){
         return $this->belongsTo(Cottage::class);
     }
 
+    public function room(){
+        return $this->belongsTo(Room::class);
+    }
 
 
 }

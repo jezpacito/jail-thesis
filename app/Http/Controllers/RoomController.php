@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
+
+    public function book_room(Room $room){
+
+        dd($room);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,7 @@ class RoomController extends Controller
      */
     public function index()
     {
+
         $rooms = Room::get();
         return view('cottage.index-room',compact('rooms'));
     }

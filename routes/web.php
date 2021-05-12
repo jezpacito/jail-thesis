@@ -43,17 +43,23 @@ Route::get('room/list','CottageController@index_room');
 \Illuminate\Support\Facades\Auth::routes();
 
 Route::middleware('auth')->group(function () {
+//book room
+    Route::get('/book/{room}','RoomController@book_room');
+
     //payment method
-    Route::get('checkout/{cottage}','CheckoutController@checkout')->name('checkout');
+    Route::get('checkout/{id}','CheckoutController@checkout')->name('checkout');
     Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');
     //end payment
 
+    //booking cottage
     Route::get('/bookings','BookingController@booking_list');
+    Route::get('/bookings/room','BookingController@booking_list_room');
+
 
     Route::get('/finished/{booking}','BookingController@finished_booked');
-
+    Route::get('/finished/room/{booking}','BookingController@finished_booked_room');
     Route::get('/history','BookingController@history');
-
+    Route::get('/history/room','BookingController@history_room');
     // Route::post('/booking','BookingController@book')->name('booking');
 
     Route::get('/home', 'HomeController@index')->name('home');
@@ -70,7 +76,6 @@ Route::middleware('auth')->group(function () {
 
 
     Route::put('/staff/update/{staff}','UserController@update');
-
 
 
     Route::prefix('report')->group(function () {

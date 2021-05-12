@@ -7,17 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class History extends Model
 {
     protected  $fillable = [
-        'guest_id',
+        'user_id',
         'date_booked',
         'cottage_id',
+        'room_id'
     ];
 
     public function cottage(){
         return $this->belongsTo(Cottage::class);
     }
 
+    public function room(){
+        return $this->belongsTo(Room::class);
+    }
+
     public function guest(){
-        return $this->belongsTo(User::class,'guest_id','id');
+        return $this->belongsTo(User::class);
     }
 
 

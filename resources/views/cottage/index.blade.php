@@ -97,7 +97,7 @@
 
                                                 <td>
                                                     <a  href="cottage/{{$cottage->id}}/edit" class="btn btn-primary btn-sm"> Update</a>
-
+                                                    <a  href="#" class="btn btn-primary btn-sm"> Make Cottage Available/Unavailable</a>
                                                 </td>
                                             </tr>
                                         @endforeach

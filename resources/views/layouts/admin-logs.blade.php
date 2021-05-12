@@ -161,8 +161,10 @@
                              data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Booking Details</h6>
-                                <a class="collapse-item" href="#">List of Booking</a>
-                                <a class="collapse-item" href="/history">Booking History</a>
+                                <a class="collapse-item" href="/bookings">Cottage Booking</a>
+                                <a class="collapse-item" href="/bookings/room">Room Booking</a>
+                                <a class="collapse-item" href="/history">Booking History Cottage</a>
+                                <a class="collapse-item" href="/history/room">Booking History Room</a>
                                 {{-- <a class="collapse-item" href="#">Yearly Logs</a> --}}
 
                             </div>
