@@ -9,18 +9,34 @@ class CottageController extends Controller
 {
     public  function  night_status($id){
        $cottage = Cottage::findOrFail($id);
-        $cottage->update([
-            'isNightAvailable' =>false
-        ]);
+
+       if($cottage->isNightAvailable ==true){
+           $cottage->update([
+               'isNightAvailable' =>false
+           ]);
+       }else{
+           $cottage->update([
+               'isNightAvailable' =>true
+           ]);
+       }
+
 
         return redirect()->back()->with('success','Updated!');
     }
 
     public  function  day_status($id){
         $cottage = Cottage::findOrFail($id);
-        $cottage->update([
-            'isDayAvailable' =>false
-        ]);
+
+        if($cottage->isDayAvailable ==true){
+            $cottage->update([
+                'isDayAvailable' =>false
+            ]);
+        }else{
+            $cottage->update([
+                'isDayAvailable' =>true
+            ]);
+        }
+
 
         return redirect()->back()->with('success','Updated!');
     }

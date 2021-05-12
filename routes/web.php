@@ -43,6 +43,9 @@ Route::get('/cottage/night/{id}','CottageController@night_status');
 Route::get('/cottage/day/{id}','CottageController@day_status');
 
 Route::resource('/rooms','RoomController');
+
+Route::get('/room/status/{id}','RoomController@status');
+
 Route::get('room/list','CottageController@index_room');
 
 \Illuminate\Support\Facades\Auth::routes();

@@ -8,6 +8,21 @@ use Illuminate\Http\Request;
 class RoomController extends Controller
 {
 
+    public  function  status($id){
+        $room = Room::findOrFail($id);
+        if($room->isVacant == true){
+            $room->update([
+                'isVacant' =>false
+            ]);
+        }else{
+            $room->update([
+                'isVacant' =>true
+            ]);
+        }
+
+        return redirect()->back()->with('success','Status Updated!');
+    }
+
     public function book_room(Room $room){
 
         dd($room);

@@ -90,7 +90,7 @@
 
                                                 <td>
                                                     <a href="/rooms/{{$room->id}}/edit " class="btn btn-primary btn-sm"> Update </a>
-                                                    <a href="#" class="btn btn-primary btn-sm"> Make room available/unavailable </a>
+                                                    <a href="/room/status/{{$room->id}}" class="btn btn-primary btn-sm"> Make room available/unavailable </a>
                                                 </td>
                                             </tr>
                                         @endforeach
