@@ -50,6 +50,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/bookings','BookingController@booking_list');
 
+    Route::get('/finished/{booking}','BookingController@finished_booked');
+
+    Route::get('/history','BookingController@history');
+
     // Route::post('/booking','BookingController@book')->name('booking');
 
     Route::get('/home', 'HomeController@index')->name('home');
