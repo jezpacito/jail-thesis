@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('isVacant')->default(true);
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('no_of_person')->default(5);
             $table->string('price');
             $table->unsignedBigInteger('category_id');

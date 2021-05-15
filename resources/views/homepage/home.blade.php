@@ -118,7 +118,7 @@
             {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
             <input name="room" value="room_booking" type="hidden" value="secret">
             <input name="price" value="{{ $room->price }}" type="hidden" value="secret">
-            <button class="btn-primary btn-sm" type="submit"> Book Now f</button>
+            <button class="btn-primary btn-sm" type="submit"> Book Now </button>
           </form>
         <p> Room Price: {{ $room->price }}</p>
       </div>

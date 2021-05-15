@@ -13,27 +13,74 @@ class CottageSeeder extends Seeder
      */
     public function run()
     {
-        factory(Cottage::class)->create([
+        Cottage::insert([
+            [
             'name' =>'Cottage 1',
-            'category_id' =>1
+            'nightRate' =>850,
+             'dayRate' =>650,
+            'category_id' =>1,
+            ],
+            [
+                'name' =>'Cottage 2',
+                'nightRate' =>850,
+                 'dayRate' =>650,
+                'category_id' =>1,
+            ],
+            [
+                'name' =>'Cottage 3',
+                'nightRate' =>850,
+                 'dayRate' =>650,
+                'category_id' =>1,
+            ],
+            [
+                'name' =>'Cottage 4',
+                'nightRate' =>850,
+                 'dayRate' =>650,
+                'category_id' =>1,
+            ],
+            [
+                'name' =>'Cottage 5',
+                'nightRate' =>850,
+                 'dayRate' =>650,
+                'category_id' =>1,
+            ],
+
+
         ]);
-        factory(Cottage::class)->create([
-            'name' =>'Cottage 2',
-            'category_id' =>1
+
+        //room default
+        Room::insert([
+            [
+                'name' => 'Room 1',
+                'category_id' =>2,
+                'price' => 2400,
+                'no_of_person' =>5
+            ],
+            [
+                'name' => 'Room 1',
+                'category_id' =>2,
+                'price' => 2400,
+                'no_of_person' =>5
+            ],
+            [
+                'name' => 'Room 2',
+                'category_id' =>2,
+                'price' => 2400,
+                'no_of_person' =>5
+            ],
+            [
+                'name' => 'Room 3',
+                'category_id' =>2,
+                'price' => 2400,
+                'no_of_person' =>5
+            ],
+            [
+                'name' => 'Room 3',
+                'category_id' =>2,
+                'price' => 2400,
+                'no_of_person' =>5
+            ],
         ]);
-        factory(Cottage::class)->create([
-            'name' =>'Cottage 3',
-            'category_id' =>1
-        ]);
-        factory(Cottage::class)->create([
-            'name' =>'Cottage 4',
-            'category_id' =>1
-        ]);
-        factory(Cottage::class)->create([
-            'name' =>'Cottage 5',
-            'category_id' =>1
-        ]);
-        factory(Room::class,5)->create();
 
     }
 }
