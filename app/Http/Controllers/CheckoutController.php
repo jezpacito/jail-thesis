@@ -81,6 +81,12 @@ class CheckoutController extends Controller
             if($request->type =='room'){
                 $room = request()->cottage_id;
                 $cottage = null;
+            }else{
+
+            if($request->type =='room'){
+                $room = null;
+                $cottage = request()->cottage_id;
+            }
             }
 
 
