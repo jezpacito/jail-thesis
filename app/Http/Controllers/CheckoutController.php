@@ -108,8 +108,9 @@ class CheckoutController extends Controller
               if($request->type =='cottage'){
                 $cottage = Cottage::where('id',$request->cottage_id)->first();
 
-                if($request->rate ==$cottage->dayRate){
 
+                if($request->rate ==$cottage->dayRate){
+                    dd('sss');
                   $data= $cottage->update([
                        'isDayAvailable' =>0
                    ]);
@@ -119,12 +120,14 @@ class CheckoutController extends Controller
                   'isNightAvailable' =>0
                   ]);
                 }
+              }else{
+                $cottage = Room::where('id',$room)->first();
+                $cottage->update([
+                    'isVacant' =>0
+                ]);
               }
 
-              $cottage = Room::where('id',$room)->first();
-              $cottage->update([
-                  'isVacant' =>0
-              ]);
+
 
               //dont change from number
               //send sms to guest
