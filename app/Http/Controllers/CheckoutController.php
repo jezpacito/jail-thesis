@@ -82,12 +82,12 @@ class CheckoutController extends Controller
                 $room = request()->cottage_id;
                 $cottage = null;
             }else{
-
-            if($request->type =='room'){
-                $room = null;
+                $room =  null;
                 $cottage = request()->cottage_id;
             }
-            }
+
+
+
 
 
               $booking = Booking::create([
