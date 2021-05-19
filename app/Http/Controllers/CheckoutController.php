@@ -24,6 +24,7 @@ class CheckoutController extends Controller
             $amount = (int) $amount;
             $type = 'room';
 
+
         }else{
             $cottage = Cottage::findORFail($id);
             if($request->rate == 'night'){
