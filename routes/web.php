@@ -35,6 +35,7 @@ Route::get('/', function () {
 Route::get('registration/guest','GuestController@guest');
 Route::post('/register/guest','GuestController@register')->name('register.guest');
 Route::get('/generate/report','ReportController@normal_report');
+Route::get('/generate/report/room','ReportController@normal_report_room');
 //cottage routes
 Route::resource('/cottage','CottageController');
 
@@ -68,6 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/finished/room/{booking}','BookingController@finished_booked_room');
     Route::get('/history','BookingController@history');
     Route::get('/history/room','BookingController@history_room');
+
     // Route::post('/booking','BookingController@book')->name('booking');
 
     Route::get('/home', 'HomeController@index')->name('home');

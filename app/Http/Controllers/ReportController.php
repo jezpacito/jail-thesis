@@ -14,9 +14,18 @@ use Illuminate\Support\Facades\Artisan;
 
 class ReportController extends Controller
 {
+    public function normal_report_room(){
+
+        $histories = History::where('cottage_id',null)->get();
+
+        $pdf = PDF::loadView('reports.room_print', compact('histories'));
+        return $pdf->stream('report.pdf');
+    }
 
     public function normal_report(){
-        $histories = History::whereDate('created_at',Carbon::now())->get();
+
+        $histories = History::get();
+
 
         $pdf = PDF::loadView('reports.print_pdf', compact('histories'));
         return $pdf->stream('report.pdf');

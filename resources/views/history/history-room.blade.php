@@ -23,7 +23,7 @@
                         </div>
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary mb-3   ">Booking Details</h6>
-                            <a href="/generate/report" class="btn btn-primary btn-sm "> Reports Booking Cottages</a>
+                            <a href="/generate/report/room" class="btn btn-primary btn-sm "> Reports Booking Room</a>
                             @include('reports.monthly')
                         </div>
                         <div class="card-body">

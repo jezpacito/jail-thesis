@@ -77,7 +77,7 @@ class BookingController extends Controller
                 History::create([
                     'cottage_id' =>$cottage->id,
                     'date_booked' =>$booking->booking_date,
-                    'guest_id' =>$booking->guest_id,
+                    'user_id' =>$booking->guest_id,
                     'booking_id' =>$booking->id
                 ]);
             });
