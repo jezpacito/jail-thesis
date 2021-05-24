@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CottageController extends Controller
 {
     public  function  night_status($id){
-       $cottage = Cottage::findOrFail($id);
+       $cottage = Cottage::find($id);
 
        if($cottage->isNightAvailable ==true){
            $cottage->update([
@@ -99,7 +99,7 @@ class CottageController extends Controller
      */
     public function edit($id)
     {
-       $cottage = Cottage::findOrFail($id);
+       $cottage = Cottage::find($id);
        return view('cottage.cottage-update',compact('cottage'));
     }
 
@@ -112,7 +112,7 @@ class CottageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cottage = Cottage::findOrFail($id);
+        $cottage = Cottage::find($id);
         $cottage->update($request->all());
 
         return redirect()->back()->with('success','Update Success');

@@ -11,6 +11,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
+
                     <h1 class="h3 mb-2 text-gray-800">Tables</h1>
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
@@ -19,8 +20,8 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Booking Details</h6>
-                            <a href="/generate/report" class="btn btn-primary mt-2">  Booking Cottages</a>
-                            <a href="#" class="btn btn-primary mt-2"> Reports Room Cottages</a>
+
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -32,7 +33,7 @@
                                         <th>Booking Date</th>
                                         <th>Booking Type</th>
                                         <th>Number of Person</th>
-                                        <th>Cottage Name</th>
+                                        <th>Room Name</th>
                                          <th>Action</th>
                                     </tr>
                                     </thead>

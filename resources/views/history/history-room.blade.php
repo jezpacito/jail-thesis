@@ -44,7 +44,7 @@
                                             <td>{{$history->guest->name  }}</td>
                                             <td>{{$history->date_booked}}</td>
                                             <td>{{$history->room->name}}</td>
-                                             <td>{{$history->guest->payment->amount_paid}}</td>
+                                             <td>1200</td>
                                         </tr>
                                     @empty
                                         NO RECORD FOUND

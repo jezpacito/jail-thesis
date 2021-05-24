@@ -20,8 +20,9 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Booking Details</h6>
-                            <a href="/generate/report" class="btn btn-primary mt-2"> Reports Booking Cottages</a>
-                            <a href="#" class="btn btn-primary mt-2"> Reports Room Cottages</a>
+
+
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
