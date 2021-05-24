@@ -112,8 +112,10 @@ class CottageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cottage = Cottage::find($id);
-        $cottage->update($request->all());
+        $cot = Cottage::where('id',$id)->first();
+        // $cottage = Cottage::find($id);
+        // $cottage == Cottage::where('id',$id)->first();
+        $cot->update($request->all());
 
         return redirect()->back()->with('success','Update Success');
     }
