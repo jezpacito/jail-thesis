@@ -8,7 +8,7 @@
             <div class="m-2">
             </div>
         <div class="card-body">
-            <form action="{{ url("cottage/$cottage->id}")}}" method="Post">
+            <form action={{ url("cottage/$cottage->id")}} method="Post">
                 @csrf
                 @method('put')
                 <div class="form-row">
