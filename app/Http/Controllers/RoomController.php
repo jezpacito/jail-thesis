@@ -102,7 +102,6 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $room = Room::findOrFail($id);
         $room = Room::where('id',$id)->first();
         $room->update($request->all());
         return redirect()->back()->with('success','Room Updated!');
