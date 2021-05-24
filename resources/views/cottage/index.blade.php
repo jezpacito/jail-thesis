@@ -95,7 +95,7 @@
                                                  @endif </td>
 
                                                 <td>
-                                                    <a  href="cottage/{{$cottage->id}}/edit" class="btn btn-primary btn-sm"> Update</a>
+                                                    <a  href="/cottage/{{$cottage->id}}/edit" class="btn btn-primary btn-sm"> Update</a>
                                                     <a  href="/cottage/night/{{$cottage->id}}" class="btn btn-warning btn-sm"> Available/Unavailable (Night) </a>
                                                     <a  href="/cottage/day/{{$cottage->id}}" class="btn btn-success btn-sm"> Available/Unavailable (Day) </a>
                                                 </td>
