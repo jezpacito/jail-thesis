@@ -57,12 +57,6 @@ class CottageSeeder extends Seeder
                 'no_of_person' =>5
             ],
             [
-                'name' => 'Room 1',
-                'category_id' =>2,
-                'price' => 2400,
-                'no_of_person' =>5
-            ],
-            [
                 'name' => 'Room 2',
                 'category_id' =>2,
                 'price' => 2400,
@@ -75,7 +69,13 @@ class CottageSeeder extends Seeder
                 'no_of_person' =>5
             ],
             [
-                'name' => 'Room 3',
+                'name' => 'Room 4',
+                'category_id' =>2,
+                'price' => 2400,
+                'no_of_person' =>5
+            ],
+            [
+                'name' => 'Room 5',
                 'category_id' =>2,
                 'price' => 2400,
                 'no_of_person' =>5

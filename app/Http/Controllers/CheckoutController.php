@@ -132,12 +132,12 @@ class CheckoutController extends Controller
 
               //dont change from number
               //send sms to guest
-            //   Nexmo::message()->send([
-            //     'to'   => auth()->user()->contact_no,
-            //     'from' => '+639218518702',
-            //     'text' => 'We have received your payment for the reservation to '.
-            //      $cottage->name . ' amounting of ' . $payment->amount_paid .' with a reference number of ' .$payment->ref_no. ' .'
-            // ]);
+              Nexmo::message()->send([
+                'to'   => auth()->user()->contact_no,
+                'from' => '+639218518702',
+                'text' => 'We have received your payment for the reservation to '.
+                 $cottage->name . ' amounting of ' . $payment->amount_paid .' with a reference number of ' .$payment->ref_no. ' .'
+            ]);
 
           });
 
