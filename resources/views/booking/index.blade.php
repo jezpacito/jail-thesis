@@ -33,7 +33,7 @@
                                         <th>Booking Date</th>
                                         <th>Booking Type</th>
                                         <th>Number of Person</th>
-                                        <th>Cottage Name</th>
+                                        <th>Cottage ID</th>
                                          <th>Action</th>
                                     </tr>
                                     </thead>
@@ -46,7 +46,7 @@
                                             <td>{{ $booking->booking_date }}</td>
                                             <td>{{ $booking->time_type }}</td>
                                             <td>{{ $booking->number_persion }}</td>
-                                            <td>{{ $booking->cottage->name}}</td>
+                                            <td>{{$booking->cottage->name}}</td>
                                             {{-- <td>{{ $booking->cottage->category->cottage_type}}</td> --}}
                                             <td>
                                                 <a href="{{url('/finished/').'/'.$booking->id}}" class="btn btn-success">Finished</a>

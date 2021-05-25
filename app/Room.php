@@ -14,7 +14,7 @@ class Room extends Model
         'no_of_person',
         'price'
     ];
-    public function cottages(){
+    public function room(){
         return $this->hasMany(Cottage::class);
     }
 }

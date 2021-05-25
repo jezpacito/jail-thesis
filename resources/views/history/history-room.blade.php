@@ -33,7 +33,7 @@
                                     <tr>
                                         <th>Guest Name</th>
                                         <th>Date Booked</th>
-                                        <th>Cottage Name</th>
+                                        <th>Room Name</th>
                                         <th>Amount Paid</th>
                                     </tr>
                                     </thead>

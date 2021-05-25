@@ -23,7 +23,7 @@
         <tr>
                 <td>{{$history->guest->name}}</td>
                 <td>{{ $history->date_booked }}</td>
-                <td>{{ $history->cottage->name }}</td>
+                <td>{{ $history->cottage->name}}</td>
                   <td>{{$history->guest->payment->amount_paid}}</td>
                 {{-- <td>{{ $booking->cottage->category->cottage_type}}</td> --}}
         </tr>

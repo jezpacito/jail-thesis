@@ -15,7 +15,7 @@
         <tr>
             <th>Guest Name</th>
             <th>Booking Date</th>
-            <th>Cottage Name</th>
+            <th>Room Name</th>
              <th>Amount Paid</th>
         </tr>
         @forelse($histories as $history)
