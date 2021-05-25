@@ -111,7 +111,6 @@ class CheckoutController extends Controller
 
 
                 if($request->rate ==$cottage->dayRate){
-                    dd('sss');
                   $data= $cottage->update([
                        'isDayAvailable' =>0
                    ]);
