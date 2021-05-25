@@ -64,10 +64,11 @@ class BookingController extends Controller
     }
 
     public function finished_booked(Booking $booking){
-
         if($booking->cottage->isNightAvailable ==false){
+        $guest =$booking->guest_id;
             $cottage = Cottage::findOrFail($booking->cottage->id);
-            DB::transaction(function ()use ($cottage,$booking){
+            DB::transaction(function ()use ($cottage,$booking,$guest){
+
                 $cottage->update([
                     'isNightAvailable' =>true,
                 ]);
@@ -77,7 +78,7 @@ class BookingController extends Controller
                 History::create([
                     'cottage_id' =>$cottage->id,
                     'date_booked' =>$booking->booking_date,
-                    'user_id' =>$booking->guest_id,
+                    'user_id' =>$guest,
                     'booking_id' =>$booking->id
                 ]);
             });
