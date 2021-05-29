@@ -15,7 +15,8 @@ class Cottage extends Model
         'isNightAvailable',
         'isDayAvailable',
         'file_name',
-        'file_path'
+        'file_path',
+        'no_of_person'
     ];
 
     public function category(){

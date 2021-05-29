@@ -33,11 +33,11 @@
                                         <th>Booking Date</th>
                                         <th>Booking Type</th>
                                         <th>Number of Person</th>
-                                        <th>Cottage ID</th>
+                                        <th>Cottage Name</th>
+                                        <th>Other Half Payment</th>
                                          <th>Action</th>
                                     </tr>
                                     </thead>
-
                                     <tbody>
 
                                         @forelse ($bookings as $booking )
@@ -47,9 +47,22 @@
                                             <td>{{ $booking->time_type }}</td>
                                             <td>{{ $booking->number_persion }}</td>
                                             <td>{{$booking->cottage->name}}</td>
+                                            <td>
+                                                @if($booking->guest->payment->other_half ==null)
+                                                 not yet paid
+                                                @else
+                                                @if($booking->time_type = 'AM')
+                                                325
+                                                @else
+                                                425
+                                                @endif
+
+                                                @endif
+                                             </td>
                                             {{-- <td>{{ $booking->cottage->category->cottage_type}}</td> --}}
                                             <td>
                                                 <a href="{{url('/finished/').'/'.$booking->id}}" class="btn btn-success">Finished</a>
+                                                <a href="{{url('/fullpaid/cottage/').'/'.$booking->guest->id}}" class="btn btn-warning mt-2">Fully Paid</a>
                                             </td>
                                         </tr>
                                         @empty

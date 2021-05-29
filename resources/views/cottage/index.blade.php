@@ -84,18 +84,19 @@
                                         @foreach ($cottages as $cottage )
                                             <tr>
                                                 <td>{{ $cottage->name }}</td>
-
                                                 <td>Price: {{ $cottage->nightRate }} | Status:  @if($cottage->isNightAvailable ==true)
                                                    <span class="text-primary">Available </span>
                                                    @else
                                                    <span class="text-danger"> Occupied</span>
-                                                @endif </td>
+                                                    @endif
+                                                </td>
 
                                                 <td>Price: {{ $cottage->dayRate }} | Status:  @if($cottage->isDayAvailable ==true)
                                                     <span class="text-primary">Available </span>
                                                     @else
                                                     <span class="text-danger"> Occupied</span>
-                                                 @endif </td>
+                                                 @endif
+                                                </td>
 
                                                 <td>
                                                     <a  href="/cottage/{{$cottage->id}}/edit" class="btn btn-primary btn-sm"> Update</a>

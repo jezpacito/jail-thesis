@@ -18,6 +18,8 @@ class CreatePaymentsTable extends Migration
             $table->unsignedBigInteger('guest_id');
             $table->integer('amount_paid');
             $table->string('ref_no');
+            $table->unsignedBigInteger('booking_id')->nullable();
+            $table->integer('other_half')->nullable();
             $table->timestamps();
         });
     }

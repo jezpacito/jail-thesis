@@ -54,7 +54,8 @@ Route::get('room/list','CottageController@index_room');
 Route::middleware('auth')->group(function () {
 //book room
     Route::get('/book/{room}','RoomController@book_room');
-
+    Route::get('/fullpaid/room/{guest}','BookingController@paid_room');
+    Route::get('/fullpaid/cottage/{guest}','BookingController@paid_cottage');
     //payment method
     Route::get('checkout/{id}','CheckoutController@checkout')->name('checkout');
     Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');

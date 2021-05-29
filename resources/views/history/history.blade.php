@@ -15,7 +15,6 @@
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                                                                                    href="https://datatables.net">official DataTables documentation</a>.</p>
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -34,17 +33,31 @@
                                         <th>Guest Name</th>
                                         <th>Date Booked</th>
                                         <th>Cottage Name</th>
-                                        <th>Amount Paid</th>
+                                        <th> Partial Payment </th>
+                                        <th>Total Amount Paid</th>
                                     </tr>
                                     </thead>
-
                                     <tbody>
                                     @forelse($histories as $history)
                                         <tr>
-                                            <td>{{$history->guest->name}}</td>
+                                            <td>{{$history->guest->name}}  {{$history->guest->last_name}}</td>
                                             <td>{{$history->date_booked}}</td>
                                             <td>{{$history->cottage->name}}</td>
-                                            <td>{{$history->guest->payment->amount_paid}}</td>
+                                            @if($history->type =='night' && $history->isPaid=='paid')
+                                            <th>425</th>
+                                            <th>850</th>
+                                            @elseif($history->type =='day')
+                                            <th>325</th>
+                                            <th>650</th>
+                                            @elseif($history->isPaid=='not')
+                                            th>325</th>
+                                            <th> 325</th>
+                                            <th> 325</th>
+                                            @else
+                                            <th> </th>
+                                            <th> </th>
+                                            @endif
+
                                         </tr>
                                     @empty
                                         NO RECORD FOUND

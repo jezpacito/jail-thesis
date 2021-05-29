@@ -32,11 +32,11 @@
                                         <th>Booking Date</th>
                                         <th>Booking Type</th>
                                         <th>Number of Person</th>
-                                        <th>Room ID</th>
+                                        <th>Room Name</th>
+                                        <th>Other Half Payment</th>
                                          <th>Action</th>
                                     </tr>
                                     </thead>
-
                                     <tbody>
 
                                         @forelse ($bookings as $booking )
@@ -45,11 +45,20 @@
                                             <td>{{ $booking->booking_date }}</td>
                                             <td>{{ $booking->time_type }}</td>
                                             <td>{{ $booking->number_persion }}</td>
-                                            <td>{{$booking->room_id}}</td>
+                                            <td>{{$booking->room->name}}</td>
+                                            <td>
+                                                @if($booking->guest->payment->other_half ==null)
+                                                not yet paid
+                                                @else
+                                                {{ $booking->guest->payment->other_half }}
+
+                                                @endif
+                                            </td>
                                             {{-- <td>{{ $booking->cottage->category->cottage_type}}</td> --}}
 
                                             <td>
                                                 <a href="{{url('/finished/room/').'/'.$booking->id}}" class="btn btn-success">Finished</a>
+                                                <a href="{{url('/fullpaid/room/').'/'.$booking->guest->id}}" class="btn btn-warning mt-2">Fully Paid</a>
                                             </td>
                                         </tr>
                                         @empty

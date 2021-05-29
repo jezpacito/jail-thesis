@@ -15,16 +15,34 @@
         <tr>
             <th>Guest Name</th>
             <th>Booking Date</th>
-            <th>Cottage Name</th>
-             <th>Amount Paid</th>
+            <th> Name</th>
+             <th>Partial Payment</th>
+             <th>Total Amount Paid</th>
         </tr>
         @forelse($histories as $history)
 
         <tr>
                 <td>{{$history->guest->name}}</td>
                 <td>{{ $history->date_booked }}</td>
-                <td>{{ $history->cottage->name}}</td>
-                  <td>{{$history->guest->payment->amount_paid}}</td>
+                <td>@if($history->room ==null)
+                    {{ $history->cottage->name}}
+                    @else
+                    {{ $history->room->name}}
+                @endif</td>
+                @if($history->type =='night' && $history->isPaid=='paid')
+                <th>425</th>
+                <th>850</th>
+                @elseif($history->type =='day')
+                <th>325</th>
+                <th>650</th>
+                @elseif($history->isPaid=='not')
+
+                <th> 325</th>
+                <th> 325</th>
+                @else
+                <th> </th>
+                <th> </th>
+                @endif
                 {{-- <td>{{ $booking->cottage->category->cottage_type}}</td> --}}
         </tr>
             @empty

@@ -10,7 +10,10 @@ class History extends Model
         'user_id',
         'date_booked',
         'cottage_id',
-        'room_id'
+        'room_id',
+        'type',
+        'isPaid'
+
     ];
 
     public function cottage(){

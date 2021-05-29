@@ -24,6 +24,7 @@ class CreateCottagesTable extends Migration
             $table->boolean('isDayAvailable')->default(true);
             $table->boolean('isVacant')->default(true);
             $table->unsignedBigInteger('category_id');
+            $table->integer('no_of_person')->default(7);
             $table->timestamps();
         });
     }

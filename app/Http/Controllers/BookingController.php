@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Booking;
 use App\Cottage;
 use App\History;
+use App\Payment;
 use App\Room;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,6 +15,26 @@ use function Ramsey\Uuid\v1;
 
 class BookingController extends Controller
 {
+
+    public function paid_room(User $guest){
+
+        $payment = Payment::where('guest_id',$guest->id)->first();
+        $payment->update([
+            'other_half' =>1200
+        ]);
+
+        return redirect()->back()->with('success','Paid Successfully');
+    }
+
+    public function paid_cottage(User $guest){
+
+        $payment = Payment::where('guest_id',$guest->id)->first();
+        $payment->update([
+            'other_half' =>425
+        ]);
+
+        return redirect()->back()->with('success','Paid Successfully');
+    }
 
     public function booking_list_room(){
         $bookings =Booking::where('isFinished',false)
@@ -68,7 +90,6 @@ class BookingController extends Controller
         $guest =$booking->guest_id;
             $cottage = Cottage::findOrFail($booking->cottage->id);
             DB::transaction(function ()use ($cottage,$booking,$guest){
-
                 $cottage->update([
                     'isNightAvailable' =>true,
                 ]);
@@ -79,7 +100,7 @@ class BookingController extends Controller
                     'cottage_id' =>$cottage->id,
                     'date_booked' =>$booking->booking_date,
                     'user_id' =>$guest,
-                    'booking_id' =>$booking->id
+                    'type' =>'night',
                 ]);
             });
 
@@ -98,7 +119,7 @@ class BookingController extends Controller
                 History::create([
                     'cottage_id' =>$cottage->id,
                     'date_booked' =>$booking->booking_date,
-                    'booking_id' =>$booking->id
+                    'type' =>'day',
                 ]);
             });
 

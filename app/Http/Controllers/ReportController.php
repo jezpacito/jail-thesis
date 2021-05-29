@@ -16,6 +16,7 @@ class ReportController extends Controller
 {
     public function normal_report_room(){
 
+
         $histories = History::where('cottage_id',null)->get();
 
         $pdf = PDF::loadView('reports.room_print', compact('histories'));
@@ -24,7 +25,7 @@ class ReportController extends Controller
 
     public function normal_report(){
 
-        $histories = History::get();
+        $histories = History::where('room_id',null)->get();
 
 
         $pdf = PDF::loadView('reports.print_pdf', compact('histories'));

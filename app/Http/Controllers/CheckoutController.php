@@ -27,6 +27,7 @@ class CheckoutController extends Controller
 
         }else{
             $cottage = Cottage::findORFail($id);
+
             if($request->rate == 'night'){
                 $amount = $cottage->nightRate/2;
                 $pay = $cottage->nightRate;
@@ -87,8 +88,14 @@ class CheckoutController extends Controller
                 $cottage = request()->cottage_id;
             }
 
-
-
+            if($request->rate ==850){
+                $time_x = 'PM';
+            }
+            if($request->rate ==650){
+                $time_x = 'AM';
+            }else{
+                $time_x = 'anytime';
+            }
 
 
               $booking = Booking::create([
@@ -96,7 +103,7 @@ class CheckoutController extends Controller
                   'booking_date' =>$date,
                   'booking_time' =>$time,
                   'guest_id' =>auth()->user()->id,
-                  'time_type' =>$time_type,
+                  'time_type' =>$time_x,
                   'cottage_id' =>$cottage,
                   'room_id' => $room
               ]);
@@ -108,6 +115,12 @@ class CheckoutController extends Controller
 
               if($request->type =='cottage'){
                 $cottage = Cottage::where('id',$request->cottage_id)->first();
+
+                $int = (int)$request->number_persion;
+
+                if($cottage->no_of_person < $int){
+                    return redirect()->route('/')->with('success','Reservation Failed!');
+                }
 
 
                 if($request->rate ==$cottage->dayRate){
@@ -121,8 +134,14 @@ class CheckoutController extends Controller
                   ]);
                 }
               }else{
-                $cottage = Room::where('id',$room)->first();
-                $cottage->update([
+                $cottage_x = Room::where('id',$room)->first();
+                $int = (int)$request->number_persion;
+
+                if($cottage_x->no_of_person < $int){
+                    return redirect()->route('/')->with('success','Reservation Failed!');
+                }
+
+                $cottage_x->update([
                     'isVacant' =>0
                 ]);
               }
@@ -131,15 +150,16 @@ class CheckoutController extends Controller
 
               //dont change from number
               //send sms to guest
-              Nexmo::message()->send([
-                'to'   => auth()->user()->contact_no,
-                'from' => '+639218518702',
-                'text' => 'We have received your payment for the reservation to '.
-                 $cottage->name . ' amounting of ' . $payment->amount_paid .' with a reference number of ' .$payment->ref_no. ' .'
-            ]);
+            //   Nexmo::message()->send([
+            //     'to'   => auth()->user()->contact_no,
+            //     'from' => '+639218518702',
+            //     'text' => 'We have received your payment for the reservation to '.
+            //      $cottage->name . ' amounting of ' . $payment->amount_paid .' with a reference number of ' .$payment->ref_no. ' .'
+            // ]);
+
 
           });
 
-        return redirect()->route('/')->with('success','Payment Has been Received!');
+          return redirect()->route('/');
     }
 }

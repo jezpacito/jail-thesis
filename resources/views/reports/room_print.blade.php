@@ -16,7 +16,8 @@
             <th>Guest Name</th>
             <th>Booking Date</th>
             <th>Room Name</th>
-             <th>Amount Paid</th>
+             <th>Partial Payment</th>
+             <th>Total Amount Paid</th>
         </tr>
         @forelse($histories as $history)
         <tr>
@@ -24,7 +25,9 @@
                 <td>{{ $history->date_booked }}</td>
                 <td>{{ $history->room->name }}</td>
                   <td>1200</td>
+                  <td>{{ 1200+1200 }}</td>
                 {{-- <td>{{ $booking->cottage->category->cottage_type}}</td> --}}
+
         </tr>
             @empty
           <h2> NO RECORD</h2>
