@@ -12,7 +12,9 @@ class Room extends Model
         'isVacant',
         'description',
         'no_of_person',
-        'price'
+        'price',
+        'file_name',
+        'file_path'
     ];
     public function room(){
         return $this->hasMany(Cottage::class);

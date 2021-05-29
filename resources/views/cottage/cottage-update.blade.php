@@ -8,7 +8,7 @@
             <div class="m-2">
             </div>
         <div class="card-body">
-            <form action={{ url("cottage/$cottage->id")}} method="Post">
+            <form action={{ url("cottage/$cottage->id")}} enctype='multipart/form-data' method="Post">
                 @csrf
                 @method('put')
                 <div class="form-row">
@@ -24,6 +24,14 @@
                         <label for="inputPassword4">Cottage Day Rate</label>
                         <input  type="text" class="form-control" name="dayRate" value="{{$cottage->dayRate}}">
                     </div>
+
+                    <div class="form-group">
+                        <div class="card" style="width: 18rem;">
+                             <img class="card-img-top" src="{{ url('storage/uploads/'.$cottage->file_name) }}" alt="Room Image">
+                            </div>
+                        <label for="exampleFormControlTextarea1">Update Image</label>
+                        <input type='file' name='file' class="form-control">
+                      </div>
 
 
                 </div>

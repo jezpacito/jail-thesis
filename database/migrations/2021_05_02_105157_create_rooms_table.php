@@ -16,6 +16,8 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('file_name')->nullable();
+            $table->string('file_path')->nullable();
             $table->boolean('isVacant')->default(true);
             $table->string('description')->nullable();
             $table->string('no_of_person')->default(5);

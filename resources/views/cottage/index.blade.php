@@ -15,7 +15,6 @@
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                                                                                    href="https://datatables.net">official DataTables documentation</a>.</p>
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -37,7 +36,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form  action="{{ route('cottage.store') }}" method="post">
+                                        <form  action="{{ route('cottage.store') }}" enctype='multipart/form-data' method="post">
                                             @csrf
                                             <div class="form-group">
                                               <label for="exampleInputEmail1">Cottage Name</label>
@@ -53,6 +52,10 @@
                                                 <label for="exampleInputEmail1">Cottage Dat Rate</label>
                                                 <input type="number" class="form-control"  value=650  name="dayRate"  readonly>
                                                 {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> --}}
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Upload Image</label>
+                                                <input type='file' name='file' class="form-control">
                                               </div>
 
                                             <button type="submit" class="btn btn-primary">Submit</button>

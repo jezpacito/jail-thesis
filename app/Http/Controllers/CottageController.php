@@ -68,6 +68,10 @@ class CottageController extends Controller
      */
     public function store(Request $request)
     {
+
+        $fileName = time().'_'.$request->file->getClientOriginalName();
+        $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+
         $cottage = Cottage::create([
             'name' =>$request->cottage_name,
             'nightRate' =>$request->nightRate,
@@ -75,7 +79,9 @@ class CottageController extends Controller
             'isVacant' =>true,
             'category_id' =>1,
             'isNightAvailable' =>true,
-            'isDayAvailable' =>true
+            'isDayAvailable' =>true,
+            'file_name' => time().'_'.$request->file->getClientOriginalName(),
+            'file_path' => '/storage/' . $filePath
         ]);
         return redirect()->back()->with('success','Cottage added!');
     }
@@ -112,10 +118,21 @@ class CottageController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
+        $fileName = time().'_'.$request->file->getClientOriginalName();
+        $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+
         $cot = Cottage::where('id',$id)->first();
-        // $cottage = Cottage::find($id);
-        // $cottage == Cottage::where('id',$id)->first();
+
         $cot->update($request->all());
+        if($request->has('file')){
+            $cot->update([
+                'file_path' => $filePath,
+                'file_name' => $fileName
+            ]);
+        }
+
 
         return redirect()->back()->with('success','Update Success');
     }

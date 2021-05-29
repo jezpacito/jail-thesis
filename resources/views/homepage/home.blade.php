@@ -111,7 +111,7 @@
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <div class="w3-display-topleft w3-black ">{{ $room->name }}</div>
-             <img src="/img/room1.jpg" alt="House" style="width:100%">
+             <img src="{{ url('storage/uploads/'.$room->file_name) }}" alt="House" style="width:100%">
         </div>
       <div>
         <form method="Get" action="/checkout/{{ $room->id }}" >

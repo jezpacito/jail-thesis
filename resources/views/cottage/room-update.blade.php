@@ -8,7 +8,7 @@
             <div class="m-2">
             </div>
         <div class="card-body">
-            <form action={{ url("rooms/$room->id")}} method="Post">
+            <form action={{ url("rooms/$room->id")}} enctype='multipart/form-data' method="Post">
                 @csrf
                 @method('put')
                 <div class="form-row">
@@ -25,6 +25,17 @@
                         <label for="exampleFormControlTextarea1">Room description</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3">{{ $room->description}}</textarea>
                       </div>
+
+                      <div class="form-group">
+                        <div class="card" style="width: 18rem;">
+                             <img class="card-img-top" src="{{ url('storage/uploads/'.$room->file_name) }}" alt="Room Image">
+                            </div>
+                        <label for="exampleFormControlTextarea1">Update Image</label>
+                        <input type='file' name='file' class="form-control">
+                      </div>
+
+
+
 
                 </div>
                 <a href="/rooms" class="btn btn-primary">Back</a>

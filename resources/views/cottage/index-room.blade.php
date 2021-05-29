@@ -38,7 +38,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form  action="{{ route('rooms.store') }}" method="post">
+                                        <form  action="{{ route('rooms.store') }}" enctype='multipart/form-data' method="post" >
                                             @csrf
                                             <div class="form-group">
                                               <label for="exampleInputEmail1">Room Name</label>
@@ -54,6 +54,11 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlTextarea1">Room description</label>
                                                 <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"></textarea>
+                                              </div>
+
+                                              <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Upload Image</label>
+                                                <input type='file' name='file' class="form-control">
                                               </div>
 
                                             <button type="submit" class="btn btn-primary">Submit</button>

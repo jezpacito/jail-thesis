@@ -58,14 +58,20 @@ class RoomController extends Controller
     public function store(Request $request)
     {
 
+        $fileName = time().'_'.$request->file->getClientOriginalName();
+        $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+
         $room = Room::create([
             'name'=>$request->name,
             'category_id' =>2,
             'isVacant' =>true,
             'description' =>$request->description,
             'no_of_person' =>5,
-            'price' => $request->price
+            'price' => $request->price,
+            'file_name' => time().'_'.$request->file->getClientOriginalName(),
+            'file_path' => '/storage/' . $filePath
         ]);
+
 
         return redirect()->route('rooms.index')->with('success','Room added');
     }
@@ -102,8 +108,20 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $fileName = time().'_'.$request->file->getClientOriginalName();
+        $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+
+
         $room = Room::where('id',$id)->first();
         $room->update($request->all());
+
+        if($request->has('file')){
+            $room->update([
+                'file_path' => $filePath,
+                'file_name' => $fileName
+            ]);
+        }
+
         return redirect()->back()->with('success','Room Updated!');
     }
 
