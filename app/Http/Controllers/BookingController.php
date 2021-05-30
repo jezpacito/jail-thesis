@@ -33,6 +33,7 @@ class BookingController extends Controller
             'other_half' =>425
         ]);
 
+
         return redirect()->back()->with('success','Paid Successfully');
     }
 
@@ -77,7 +78,7 @@ class BookingController extends Controller
                 'room_id' =>$room->id,
                 'date_booked' =>$booking->booking_date,
                 'user_id' =>$booking->guest_id,
-                'booking_id' =>$booking->id
+                'booking_id' =>$booking->id,
             ]);
         });
         return redirect()->back()->with('success','Session Finished!');

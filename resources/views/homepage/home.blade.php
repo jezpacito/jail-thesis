@@ -61,7 +61,7 @@
 
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
-        <img src="/img/cottage.jpg" alt="House" style="width:99%">
+        <img src="{{ url('storage/uploads/'.$cottage->file_name) }}" alt="House" style="width:99%">
         {{-- <h3>{{ $cottage->id }}</h3> --}}
         <h3>{{ $cottage->name }}</h3>
         <p>{{ $cottage->description }}</p>

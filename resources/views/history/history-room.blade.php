@@ -45,8 +45,15 @@
                                             <td>{{$history->guest->name  }}</td>
                                             <td>{{$history->date_booked}}</td>
                                             <td>{{$history->room->name}}</td>
-                                             <td>1200</td>
-                                             <td>{{ 1200 +1200 }} </td>
+                                            @if($history->guest->payment->other_half!=null)
+                                            <td>1200</td>
+                                            <td>{{ 1200 +1200 }} </td>
+                                            @elseif($history->guest->payment->other_half==null)
+
+                                            <td>1200</td>
+                                            <td>1200 </td>
+                                            @endif
+
                                         </tr>
                                     @empty
                                         NO RECORD FOUND

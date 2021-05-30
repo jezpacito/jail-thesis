@@ -19,7 +19,7 @@ class CreateHistoriesTable extends Migration
             $table->date('date_booked');
             $table->unsignedBigInteger('cottage_id')->nullable();
             $table->unsignedBigInteger('room_id')->nullable();
-            $table->string('type');
+            $table->string('type')->nullable();
             $table->string('isPaid')->default('not');
             $table->timestamps();
         });
